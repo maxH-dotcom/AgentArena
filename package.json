@@ -8,6 +8,7 @@
     "db:generate": "prisma migrate dev",
     "db:migrate": "prisma migrate deploy",
     "db:push": "prisma db push",
+    "db:seed": "prisma db seed",
     "db:studio": "prisma studio",
     "dev": "next dev --turbo",
     "postinstall": "prisma generate",
@@ -19,8 +20,11 @@
     "@auth/prisma-adapter": "^2.7.2",
     "@prisma/client": "^6.6.0",
     "@t3-oss/env-nextjs": "^0.12.0",
+    "bcryptjs": "^3.0.3",
     "next": "^15.2.3",
     "next-auth": "5.0.0-beta.25",
+    "next-intl": "^4.14.2",
+    "nodemailer": "^9.1.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "zod": "^3.24.2"
@@ -28,12 +32,17 @@
   "devDependencies": {
     "@tailwindcss/postcss": "^4.0.15",
     "@types/node": "^20.14.10",
+    "@types/nodemailer": "^8.0.1",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "postcss": "^8.5.3",
     "prisma": "^6.6.0",
     "tailwindcss": "^4.0.15",
+    "tsx": "^4.23.13",
     "typescript": "^5.8.2"
+  },
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
   },
   "ct3aMetadata": {
     "initVersion": "7.40.0"

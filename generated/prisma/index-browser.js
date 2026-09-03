@@ -118,14 +118,6 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
   Serializable: 'Serializable'
 });
 
-exports.Prisma.PostScalarFieldEnum = {
-  id: 'id',
-  name: 'name',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt',
-  createdById: 'createdById'
-};
-
 exports.Prisma.AccountScalarFieldEnum = {
   id: 'id',
   userId: 'userId',
@@ -149,18 +141,200 @@ exports.Prisma.SessionScalarFieldEnum = {
   expires: 'expires'
 };
 
+exports.Prisma.VerificationTokenScalarFieldEnum = {
+  identifier: 'identifier',
+  token: 'token',
+  expires: 'expires'
+};
+
 exports.Prisma.UserScalarFieldEnum = {
   id: 'id',
   name: 'name',
   email: 'email',
   emailVerified: 'emailVerified',
-  image: 'image'
+  passwordHash: 'passwordHash',
+  image: 'image',
+  avatar: 'avatar',
+  bio: 'bio',
+  githubId: 'githubId',
+  campId: 'campId',
+  campChangedAt: 'campChangedAt',
+  deletedAt: 'deletedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
-exports.Prisma.VerificationTokenScalarFieldEnum = {
-  identifier: 'identifier',
-  token: 'token',
-  expires: 'expires'
+exports.Prisma.AgentScalarFieldEnum = {
+  id: 'id',
+  ownerId: 'ownerId',
+  name: 'name',
+  avatar: 'avatar',
+  description: 'description',
+  agentCard: 'agentCard',
+  apiKeyHash: 'apiKeyHash',
+  a2aEndpoint: 'a2aEndpoint',
+  campId: 'campId',
+  campChangedAt: 'campChangedAt',
+  isPublic: 'isPublic',
+  deletedAt: 'deletedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.CampScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  slogan: 'slogan',
+  color: 'color',
+  description: 'description',
+  createdByType: 'createdByType',
+  createdById: 'createdById',
+  memberCount: 'memberCount',
+  winCount: 'winCount',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.ArenaScalarFieldEnum = {
+  id: 'id',
+  creatorType: 'creatorType',
+  creatorId: 'creatorId',
+  campId: 'campId',
+  title: 'title',
+  description: 'description',
+  status: 'status',
+  deadline: 'deadline',
+  evalMode: 'evalMode',
+  evalConfig: 'evalConfig',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.ArenaStandardScalarFieldEnum = {
+  id: 'id',
+  arenaId: 'arenaId',
+  version: 'version',
+  content: 'content',
+  editedByType: 'editedByType',
+  editedById: 'editedById',
+  note: 'note',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.StandardProposalScalarFieldEnum = {
+  id: 'id',
+  arenaId: 'arenaId',
+  authorType: 'authorType',
+  authorId: 'authorId',
+  content: 'content',
+  rationale: 'rationale',
+  status: 'status',
+  reviewNote: 'reviewNote',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.ArenaCollaboratorScalarFieldEnum = {
+  id: 'id',
+  arenaId: 'arenaId',
+  applicantType: 'applicantType',
+  applicantId: 'applicantId',
+  status: 'status',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.EntryScalarFieldEnum = {
+  id: 'id',
+  arenaId: 'arenaId',
+  agentId: 'agentId',
+  a2aEndpoint: 'a2aEndpoint',
+  joinedAt: 'joinedAt'
+};
+
+exports.Prisma.SubmissionScalarFieldEnum = {
+  id: 'id',
+  entryId: 'entryId',
+  content: 'content',
+  mediaUrl: 'mediaUrl',
+  artifact: 'artifact',
+  metrics: 'metrics',
+  autoScore: 'autoScore',
+  judgeScore: 'judgeScore',
+  voteScore: 'voteScore',
+  finalScore: 'finalScore',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.VoteScalarFieldEnum = {
+  id: 'id',
+  voterType: 'voterType',
+  voterId: 'voterId',
+  submissionId: 'submissionId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.CommentScalarFieldEnum = {
+  id: 'id',
+  authorType: 'authorType',
+  authorId: 'authorId',
+  targetType: 'targetType',
+  targetId: 'targetId',
+  content: 'content',
+  parentId: 'parentId',
+  deletedAt: 'deletedAt',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.PostScalarFieldEnum = {
+  id: 'id',
+  authorType: 'authorType',
+  authorId: 'authorId',
+  board: 'board',
+  title: 'title',
+  content: 'content',
+  upvotes: 'upvotes',
+  deletedAt: 'deletedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.FollowScalarFieldEnum = {
+  id: 'id',
+  followerType: 'followerType',
+  followerId: 'followerId',
+  targetType: 'targetType',
+  targetId: 'targetId',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.NotificationScalarFieldEnum = {
+  id: 'id',
+  recipientType: 'recipientType',
+  recipientId: 'recipientId',
+  type: 'type',
+  payload: 'payload',
+  read: 'read',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.EvalJobScalarFieldEnum = {
+  id: 'id',
+  submissionId: 'submissionId',
+  status: 'status',
+  attempts: 'attempts',
+  lastError: 'lastError',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.PasswordResetCodeScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  codeHash: 'codeHash',
+  expiresAt: 'expiresAt',
+  usedAt: 'usedAt',
+  createdAt: 'createdAt'
 };
 
 exports.Prisma.SortOrder = {
@@ -175,11 +349,25 @@ exports.Prisma.NullsOrder = {
 
 
 exports.Prisma.ModelName = {
-  Post: 'Post',
   Account: 'Account',
   Session: 'Session',
+  VerificationToken: 'VerificationToken',
   User: 'User',
-  VerificationToken: 'VerificationToken'
+  Agent: 'Agent',
+  Camp: 'Camp',
+  Arena: 'Arena',
+  ArenaStandard: 'ArenaStandard',
+  StandardProposal: 'StandardProposal',
+  ArenaCollaborator: 'ArenaCollaborator',
+  Entry: 'Entry',
+  Submission: 'Submission',
+  Vote: 'Vote',
+  Comment: 'Comment',
+  Post: 'Post',
+  Follow: 'Follow',
+  Notification: 'Notification',
+  EvalJob: 'EvalJob',
+  PasswordResetCode: 'PasswordResetCode'
 };
 
 /**

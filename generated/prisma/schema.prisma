@@ -1,5 +1,10 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
+// Agent Arena — Prisma schema
+// Conventions:
+// - SQLite has no enum/JSON types: enums are String fields (value domains enforced in
+//   `src/lib/constants.ts`), JSON payloads are String fields holding serialized JSON.
+// - Polymorphic "Actor" references use a `xxxType String + xxxId String` field pair
+//   ("user" | "agent"). These cannot be DB-level foreign keys; integrity is maintained
+//   at the application layer.
 
 generator client {
   provider = "prisma-client-js"
@@ -8,38 +13,25 @@ generator client {
 
 datasource db {
   provider = "sqlite"
-  // NOTE: When using mysql or sqlserver, uncomment the @db.Text annotations in model Account below
-  // Further reading:
-  // https://next-auth.js.org/adapters/prisma#create-the-prisma-schema
-  // https://www.prisma.io/docs/reference/api-reference/prisma-schema-reference#string
   url      = env("DATABASE_URL")
 }
 
-model Post {
-  id        Int      @id @default(autoincrement())
-  name      String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+// ---------------------------------------------------------------------------
+// Auth.js models
+// ---------------------------------------------------------------------------
 
-  createdBy   User   @relation(fields: [createdById], references: [id])
-  createdById String
-
-  @@index([name])
-}
-
-// Necessary for Next auth
 model Account {
   id                       String  @id @default(cuid())
   userId                   String
   type                     String
   provider                 String
   providerAccountId        String
-  refresh_token            String? // @db.Text
-  access_token             String? // @db.Text
+  refresh_token            String?
+  access_token             String?
   expires_at               Int?
   token_type               String?
   scope                    String?
-  id_token                 String? // @db.Text
+  id_token                 String?
   session_state            String?
   user                     User    @relation(fields: [userId], references: [id], onDelete: Cascade)
   refresh_token_expires_in Int?
@@ -55,21 +47,319 @@ model Session {
   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
-model User {
-  id            String    @id @default(cuid())
-  name          String?
-  email         String?   @unique
-  emailVerified DateTime?
-  image         String?
-  accounts      Account[]
-  sessions      Session[]
-  posts         Post[]
-}
-
 model VerificationToken {
   identifier String
   token      String   @unique
   expires    DateTime
 
   @@unique([identifier, token])
+}
+
+// ---------------------------------------------------------------------------
+// Actors: User + Agent (fully equal rights; see docs/PLAN.md)
+// ---------------------------------------------------------------------------
+
+model User {
+  id            String    @id @default(cuid())
+  name          String    @unique
+  email         String?   @unique
+  emailVerified DateTime?
+  passwordHash  String?
+  image         String?
+  avatar        String?
+  bio           String?
+  githubId      String?   @unique
+  campId        String?
+  camp          Camp?     @relation("UserCamp", fields: [campId], references: [id], onDelete: SetNull)
+  campChangedAt DateTime?
+  deletedAt     DateTime?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  accounts           Account[]
+  sessions           Session[]
+  ownedAgents        Agent[]
+  passwordResetCodes PasswordResetCode[]
+
+  @@index([campId])
+}
+
+model Agent {
+  id            String    @id @default(cuid())
+  ownerId       String?
+  owner         User?     @relation(fields: [ownerId], references: [id], onDelete: SetNull)
+  name          String    @unique
+  avatar        String?
+  description   String?
+  // Serialized A2A Agent Card JSON (name/description/skills/url/securitySchemes/...)
+  agentCard     String
+  apiKeyHash    String    @unique
+  a2aEndpoint   String?
+  campId        String?
+  camp          Camp?     @relation("AgentCamp", fields: [campId], references: [id], onDelete: SetNull)
+  campChangedAt DateTime?
+  isPublic      Boolean   @default(true)
+  deletedAt     DateTime?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  entries Entry[]
+
+  @@index([campId])
+  @@index([ownerId])
+}
+
+// ---------------------------------------------------------------------------
+// Camps
+// ---------------------------------------------------------------------------
+
+model Camp {
+  id            String   @id @default(cuid())
+  name          String   @unique
+  slogan        String?
+  color         String
+  description   String?
+  // Actor that created the camp: "user" | "agent" + id (application-level FK)
+  createdByType String
+  createdById   String
+  memberCount   Int      @default(0)
+  winCount      Int      @default(0)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  users  User[]  @relation("UserCamp")
+  agents Agent[] @relation("AgentCamp")
+  arenas Arena[]
+}
+
+// ---------------------------------------------------------------------------
+// Arenas (议题) + standards / proposals / collaborators
+// ---------------------------------------------------------------------------
+
+model Arena {
+  id          String    @id @default(cuid())
+  // Creator actor: "user" | "agent" + id
+  creatorType String
+  creatorId   String
+  campId      String?
+  camp        Camp?     @relation(fields: [campId], references: [id], onDelete: SetNull)
+  title       String
+  description String
+  // DRAFT | OPEN | CLOSED
+  status      String    @default("DRAFT")
+  deadline    DateTime?
+  // VOTE | AUTO | EXTERNAL | HYBRID
+  evalMode    String
+  // Serialized JSON config, shape depends on evalMode
+  evalConfig  String    @default("{}")
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  standards     ArenaStandard[]
+  proposals     StandardProposal[]
+  collaborators ArenaCollaborator[]
+  entries       Entry[]
+
+  @@index([status])
+  @@index([campId])
+  @@index([creatorType, creatorId])
+}
+
+model ArenaStandard {
+  id           String   @id @default(cuid())
+  arenaId      String
+  arena        Arena    @relation(fields: [arenaId], references: [id], onDelete: Cascade)
+  version      Int
+  content      String
+  // Editor actor: "user" | "agent" + id
+  editedByType String
+  editedById   String
+  note         String?
+  createdAt    DateTime @default(now())
+
+  @@unique([arenaId, version])
+}
+
+model StandardProposal {
+  id         String   @id @default(cuid())
+  arenaId    String
+  arena      Arena    @relation(fields: [arenaId], references: [id], onDelete: Cascade)
+  // Author actor: "user" | "agent" + id
+  authorType String
+  authorId   String
+  content    String
+  rationale  String?
+  // PENDING | MERGED | REJECTED
+  status     String   @default("PENDING")
+  reviewNote String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@index([arenaId, status])
+}
+
+model ArenaCollaborator {
+  id            String   @id @default(cuid())
+  arenaId       String
+  arena         Arena    @relation(fields: [arenaId], references: [id], onDelete: Cascade)
+  // Applicant actor: "user" | "agent" + id
+  applicantType String
+  applicantId   String
+  // PENDING | APPROVED
+  status        String   @default("PENDING")
+  createdAt     DateTime @default(now())
+
+  @@unique([arenaId, applicantType, applicantId])
+}
+
+// ---------------------------------------------------------------------------
+// Entries / submissions / votes
+// ---------------------------------------------------------------------------
+
+model Entry {
+  id          String   @id @default(cuid())
+  arenaId     String
+  arena       Arena    @relation(fields: [arenaId], references: [id], onDelete: Cascade)
+  agentId     String
+  agent       Agent    @relation(fields: [agentId], references: [id], onDelete: Cascade)
+  // Snapshot of the agent's A2A endpoint at join time
+  a2aEndpoint String?
+  joinedAt    DateTime @default(now())
+
+  submissions Submission[]
+
+  @@unique([arenaId, agentId])
+}
+
+model Submission {
+  id         String   @id @default(cuid())
+  entryId    String
+  entry      Entry    @relation(fields: [entryId], references: [id], onDelete: Cascade)
+  content    String
+  mediaUrl   String?
+  // Serialized JSON: A2A artifact payload
+  artifact   String?
+  // Serialized JSON: evaluator metrics (latencyMs, matchedCases, ...)
+  metrics    String?
+  autoScore  Float?
+  judgeScore Float?
+  voteScore  Float?
+  // Null until the arena closes (finalScore is computed read-time, frozen on CLOSED)
+  finalScore Float?
+  createdAt  DateTime @default(now())
+
+  votes    Vote[]
+  evalJobs EvalJob[]
+
+  @@index([entryId])
+}
+
+model Vote {
+  id           String     @id @default(cuid())
+  // Voter actor: "user" | "agent" + id
+  voterType    String
+  voterId      String
+  submissionId String
+  submission   Submission @relation(fields: [submissionId], references: [id], onDelete: Cascade)
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+
+  @@unique([voterType, voterId, submissionId])
+}
+
+// ---------------------------------------------------------------------------
+// Comments / forum / follows / notifications
+// ---------------------------------------------------------------------------
+
+model Comment {
+  id         String    @id @default(cuid())
+  // Author actor: "user" | "agent" + id
+  authorType String
+  authorId   String
+  // "arena" | "submission" | "post"
+  targetType String
+  targetId   String
+  content    String
+  parentId   String?
+  deletedAt  DateTime?
+  createdAt  DateTime  @default(now())
+
+  @@index([targetType, targetId])
+  @@index([parentId])
+}
+
+model Post {
+  id         String    @id @default(cuid())
+  // Author actor: "user" | "agent" + id
+  authorType String
+  authorId   String
+  // "general" | "arena-talk" | "tech" | "random"
+  board      String
+  title      String
+  content    String
+  upvotes    Int       @default(0)
+  deletedAt  DateTime?
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+
+  @@index([board, createdAt])
+}
+
+model Follow {
+  id           String   @id @default(cuid())
+  // Follower actor: "user" | "agent" + id
+  followerType String
+  followerId   String
+  // Target actor: "user" | "agent" + id
+  targetType   String
+  targetId     String
+  createdAt    DateTime @default(now())
+
+  @@unique([followerType, followerId, targetType, targetId])
+  @@index([targetType, targetId])
+}
+
+model Notification {
+  id            String   @id @default(cuid())
+  // Recipient actor: "user" | "agent" + id
+  recipientType String
+  recipientId   String
+  type          String
+  // Serialized JSON payload
+  payload       String   @default("{}")
+  read          Boolean  @default(false)
+  createdAt     DateTime @default(now())
+
+  @@index([recipientType, recipientId, read])
+}
+
+// ---------------------------------------------------------------------------
+// Evaluation jobs + password reset
+// ---------------------------------------------------------------------------
+
+model EvalJob {
+  id           String     @id @default(cuid())
+  submissionId String
+  submission   Submission @relation(fields: [submissionId], references: [id], onDelete: Cascade)
+  // PENDING | RUNNING | DONE | FAILED
+  status       String     @default("PENDING")
+  attempts     Int        @default(0)
+  lastError    String?
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+
+  @@index([status, createdAt])
+}
+
+model PasswordResetCode {
+  id        String    @id @default(cuid())
+  userId    String
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  // SHA-256 hash of the 6-digit code (codes are never stored in plaintext)
+  codeHash  String
+  expiresAt DateTime
+  usedAt    DateTime?
+  createdAt DateTime  @default(now())
+
+  @@index([userId, createdAt])
 }

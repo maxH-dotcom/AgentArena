@@ -11,6 +11,8 @@
 # database
 /prisma/db.sqlite
 /prisma/db.sqlite-journal
+/prisma/db.sqlite-wal
+/prisma/db.sqlite-shm
 db.sqlite
 
 # next.js

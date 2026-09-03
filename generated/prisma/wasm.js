@@ -90,14 +90,6 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
   Serializable: 'Serializable'
 });
 
-exports.Prisma.PostScalarFieldEnum = {
-  id: 'id',
-  name: 'name',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt',
-  createdById: 'createdById'
-};
-
 exports.Prisma.AccountScalarFieldEnum = {
   id: 'id',
   userId: 'userId',
@@ -121,18 +113,200 @@ exports.Prisma.SessionScalarFieldEnum = {
   expires: 'expires'
 };
 
+exports.Prisma.VerificationTokenScalarFieldEnum = {
+  identifier: 'identifier',
+  token: 'token',
+  expires: 'expires'
+};
+
 exports.Prisma.UserScalarFieldEnum = {
   id: 'id',
   name: 'name',
   email: 'email',
   emailVerified: 'emailVerified',
-  image: 'image'
+  passwordHash: 'passwordHash',
+  image: 'image',
+  avatar: 'avatar',
+  bio: 'bio',
+  githubId: 'githubId',
+  campId: 'campId',
+  campChangedAt: 'campChangedAt',
+  deletedAt: 'deletedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
-exports.Prisma.VerificationTokenScalarFieldEnum = {
-  identifier: 'identifier',
-  token: 'token',
-  expires: 'expires'
+exports.Prisma.AgentScalarFieldEnum = {
+  id: 'id',
+  ownerId: 'ownerId',
+  name: 'name',
+  avatar: 'avatar',
+  description: 'description',
+  agentCard: 'agentCard',
+  apiKeyHash: 'apiKeyHash',
+  a2aEndpoint: 'a2aEndpoint',
+  campId: 'campId',
+  campChangedAt: 'campChangedAt',
+  isPublic: 'isPublic',
+  deletedAt: 'deletedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.CampScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  slogan: 'slogan',
+  color: 'color',
+  description: 'description',
+  createdByType: 'createdByType',
+  createdById: 'createdById',
+  memberCount: 'memberCount',
+  winCount: 'winCount',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.ArenaScalarFieldEnum = {
+  id: 'id',
+  creatorType: 'creatorType',
+  creatorId: 'creatorId',
+  campId: 'campId',
+  title: 'title',
+  description: 'description',
+  status: 'status',
+  deadline: 'deadline',
+  evalMode: 'evalMode',
+  evalConfig: 'evalConfig',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.ArenaStandardScalarFieldEnum = {
+  id: 'id',
+  arenaId: 'arenaId',
+  version: 'version',
+  content: 'content',
+  editedByType: 'editedByType',
+  editedById: 'editedById',
+  note: 'note',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.StandardProposalScalarFieldEnum = {
+  id: 'id',
+  arenaId: 'arenaId',
+  authorType: 'authorType',
+  authorId: 'authorId',
+  content: 'content',
+  rationale: 'rationale',
+  status: 'status',
+  reviewNote: 'reviewNote',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.ArenaCollaboratorScalarFieldEnum = {
+  id: 'id',
+  arenaId: 'arenaId',
+  applicantType: 'applicantType',
+  applicantId: 'applicantId',
+  status: 'status',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.EntryScalarFieldEnum = {
+  id: 'id',
+  arenaId: 'arenaId',
+  agentId: 'agentId',
+  a2aEndpoint: 'a2aEndpoint',
+  joinedAt: 'joinedAt'
+};
+
+exports.Prisma.SubmissionScalarFieldEnum = {
+  id: 'id',
+  entryId: 'entryId',
+  content: 'content',
+  mediaUrl: 'mediaUrl',
+  artifact: 'artifact',
+  metrics: 'metrics',
+  autoScore: 'autoScore',
+  judgeScore: 'judgeScore',
+  voteScore: 'voteScore',
+  finalScore: 'finalScore',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.VoteScalarFieldEnum = {
+  id: 'id',
+  voterType: 'voterType',
+  voterId: 'voterId',
+  submissionId: 'submissionId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.CommentScalarFieldEnum = {
+  id: 'id',
+  authorType: 'authorType',
+  authorId: 'authorId',
+  targetType: 'targetType',
+  targetId: 'targetId',
+  content: 'content',
+  parentId: 'parentId',
+  deletedAt: 'deletedAt',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.PostScalarFieldEnum = {
+  id: 'id',
+  authorType: 'authorType',
+  authorId: 'authorId',
+  board: 'board',
+  title: 'title',
+  content: 'content',
+  upvotes: 'upvotes',
+  deletedAt: 'deletedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.FollowScalarFieldEnum = {
+  id: 'id',
+  followerType: 'followerType',
+  followerId: 'followerId',
+  targetType: 'targetType',
+  targetId: 'targetId',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.NotificationScalarFieldEnum = {
+  id: 'id',
+  recipientType: 'recipientType',
+  recipientId: 'recipientId',
+  type: 'type',
+  payload: 'payload',
+  read: 'read',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.EvalJobScalarFieldEnum = {
+  id: 'id',
+  submissionId: 'submissionId',
+  status: 'status',
+  attempts: 'attempts',
+  lastError: 'lastError',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.PasswordResetCodeScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  codeHash: 'codeHash',
+  expiresAt: 'expiresAt',
+  usedAt: 'usedAt',
+  createdAt: 'createdAt'
 };
 
 exports.Prisma.SortOrder = {
@@ -147,11 +321,25 @@ exports.Prisma.NullsOrder = {
 
 
 exports.Prisma.ModelName = {
-  Post: 'Post',
   Account: 'Account',
   Session: 'Session',
+  VerificationToken: 'VerificationToken',
   User: 'User',
-  VerificationToken: 'VerificationToken'
+  Agent: 'Agent',
+  Camp: 'Camp',
+  Arena: 'Arena',
+  ArenaStandard: 'ArenaStandard',
+  StandardProposal: 'StandardProposal',
+  ArenaCollaborator: 'ArenaCollaborator',
+  Entry: 'Entry',
+  Submission: 'Submission',
+  Vote: 'Vote',
+  Comment: 'Comment',
+  Post: 'Post',
+  Follow: 'Follow',
+  Notification: 'Notification',
+  EvalJob: 'EvalJob',
+  PasswordResetCode: 'PasswordResetCode'
 };
 /**
  * Create the Client
@@ -164,7 +352,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "/Volumes/hmq/agent世界大战/agent-arena/generated/prisma",
+      "value": "/Volumes/hmq/agent世界大战/generated/prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -178,7 +366,7 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "/Volumes/hmq/agent世界大战/agent-arena/prisma/schema.prisma",
+    "sourceFilePath": "/Volumes/hmq/agent世界大战/prisma/schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
@@ -192,7 +380,6 @@ const config = {
     "db"
   ],
   "activeProvider": "sqlite",
-  "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {
@@ -201,13 +388,13 @@ const config = {
       }
     }
   },
-  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\ngenerator client {\n  provider = \"prisma-client-js\"\n  output   = \"../generated/prisma\"\n}\n\ndatasource db {\n  provider = \"sqlite\"\n  // NOTE: When using mysql or sqlserver, uncomment the @db.Text annotations in model Account below\n  // Further reading:\n  // https://next-auth.js.org/adapters/prisma#create-the-prisma-schema\n  // https://www.prisma.io/docs/reference/api-reference/prisma-schema-reference#string\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel Post {\n  id        Int      @id @default(autoincrement())\n  name      String\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n\n  createdBy   User   @relation(fields: [createdById], references: [id])\n  createdById String\n\n  @@index([name])\n}\n\n// Necessary for Next auth\nmodel Account {\n  id                       String  @id @default(cuid())\n  userId                   String\n  type                     String\n  provider                 String\n  providerAccountId        String\n  refresh_token            String? // @db.Text\n  access_token             String? // @db.Text\n  expires_at               Int?\n  token_type               String?\n  scope                    String?\n  id_token                 String? // @db.Text\n  session_state            String?\n  user                     User    @relation(fields: [userId], references: [id], onDelete: Cascade)\n  refresh_token_expires_in Int?\n\n  @@unique([provider, providerAccountId])\n}\n\nmodel Session {\n  id           String   @id @default(cuid())\n  sessionToken String   @unique\n  userId       String\n  expires      DateTime\n  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)\n}\n\nmodel User {\n  id            String    @id @default(cuid())\n  name          String?\n  email         String?   @unique\n  emailVerified DateTime?\n  image         String?\n  accounts      Account[]\n  sessions      Session[]\n  posts         Post[]\n}\n\nmodel VerificationToken {\n  identifier String\n  token      String   @unique\n  expires    DateTime\n\n  @@unique([identifier, token])\n}\n",
-  "inlineSchemaHash": "2379fe619003a4532e1317ec33324f5549ff669a85866549ae71a5b6c8c7fc10",
+  "inlineSchema": "// Agent Arena — Prisma schema\n// Conventions:\n// - SQLite has no enum/JSON types: enums are String fields (value domains enforced in\n//   `src/lib/constants.ts`), JSON payloads are String fields holding serialized JSON.\n// - Polymorphic \"Actor\" references use a `xxxType String + xxxId String` field pair\n//   (\"user\" | \"agent\"). These cannot be DB-level foreign keys; integrity is maintained\n//   at the application layer.\n\ngenerator client {\n  provider = \"prisma-client-js\"\n  output   = \"../generated/prisma\"\n}\n\ndatasource db {\n  provider = \"sqlite\"\n  url      = env(\"DATABASE_URL\")\n}\n\n// ---------------------------------------------------------------------------\n// Auth.js models\n// ---------------------------------------------------------------------------\n\nmodel Account {\n  id                       String  @id @default(cuid())\n  userId                   String\n  type                     String\n  provider                 String\n  providerAccountId        String\n  refresh_token            String?\n  access_token             String?\n  expires_at               Int?\n  token_type               String?\n  scope                    String?\n  id_token                 String?\n  session_state            String?\n  user                     User    @relation(fields: [userId], references: [id], onDelete: Cascade)\n  refresh_token_expires_in Int?\n\n  @@unique([provider, providerAccountId])\n}\n\nmodel Session {\n  id           String   @id @default(cuid())\n  sessionToken String   @unique\n  userId       String\n  expires      DateTime\n  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)\n}\n\nmodel VerificationToken {\n  identifier String\n  token      String   @unique\n  expires    DateTime\n\n  @@unique([identifier, token])\n}\n\n// ---------------------------------------------------------------------------\n// Actors: User + Agent (fully equal rights; see docs/PLAN.md)\n// ---------------------------------------------------------------------------\n\nmodel User {\n  id            String    @id @default(cuid())\n  name          String    @unique\n  email         String?   @unique\n  emailVerified DateTime?\n  passwordHash  String?\n  image         String?\n  avatar        String?\n  bio           String?\n  githubId      String?   @unique\n  campId        String?\n  camp          Camp?     @relation(\"UserCamp\", fields: [campId], references: [id], onDelete: SetNull)\n  campChangedAt DateTime?\n  deletedAt     DateTime?\n  createdAt     DateTime  @default(now())\n  updatedAt     DateTime  @updatedAt\n\n  accounts           Account[]\n  sessions           Session[]\n  ownedAgents        Agent[]\n  passwordResetCodes PasswordResetCode[]\n\n  @@index([campId])\n}\n\nmodel Agent {\n  id            String    @id @default(cuid())\n  ownerId       String?\n  owner         User?     @relation(fields: [ownerId], references: [id], onDelete: SetNull)\n  name          String    @unique\n  avatar        String?\n  description   String?\n  // Serialized A2A Agent Card JSON (name/description/skills/url/securitySchemes/...)\n  agentCard     String\n  apiKeyHash    String    @unique\n  a2aEndpoint   String?\n  campId        String?\n  camp          Camp?     @relation(\"AgentCamp\", fields: [campId], references: [id], onDelete: SetNull)\n  campChangedAt DateTime?\n  isPublic      Boolean   @default(true)\n  deletedAt     DateTime?\n  createdAt     DateTime  @default(now())\n  updatedAt     DateTime  @updatedAt\n\n  entries Entry[]\n\n  @@index([campId])\n  @@index([ownerId])\n}\n\n// ---------------------------------------------------------------------------\n// Camps\n// ---------------------------------------------------------------------------\n\nmodel Camp {\n  id            String   @id @default(cuid())\n  name          String   @unique\n  slogan        String?\n  color         String\n  description   String?\n  // Actor that created the camp: \"user\" | \"agent\" + id (application-level FK)\n  createdByType String\n  createdById   String\n  memberCount   Int      @default(0)\n  winCount      Int      @default(0)\n  createdAt     DateTime @default(now())\n  updatedAt     DateTime @updatedAt\n\n  users  User[]  @relation(\"UserCamp\")\n  agents Agent[] @relation(\"AgentCamp\")\n  arenas Arena[]\n}\n\n// ---------------------------------------------------------------------------\n// Arenas (议题) + standards / proposals / collaborators\n// ---------------------------------------------------------------------------\n\nmodel Arena {\n  id          String    @id @default(cuid())\n  // Creator actor: \"user\" | \"agent\" + id\n  creatorType String\n  creatorId   String\n  campId      String?\n  camp        Camp?     @relation(fields: [campId], references: [id], onDelete: SetNull)\n  title       String\n  description String\n  // DRAFT | OPEN | CLOSED\n  status      String    @default(\"DRAFT\")\n  deadline    DateTime?\n  // VOTE | AUTO | EXTERNAL | HYBRID\n  evalMode    String\n  // Serialized JSON config, shape depends on evalMode\n  evalConfig  String    @default(\"{}\")\n  createdAt   DateTime  @default(now())\n  updatedAt   DateTime  @updatedAt\n\n  standards     ArenaStandard[]\n  proposals     StandardProposal[]\n  collaborators ArenaCollaborator[]\n  entries       Entry[]\n\n  @@index([status])\n  @@index([campId])\n  @@index([creatorType, creatorId])\n}\n\nmodel ArenaStandard {\n  id           String   @id @default(cuid())\n  arenaId      String\n  arena        Arena    @relation(fields: [arenaId], references: [id], onDelete: Cascade)\n  version      Int\n  content      String\n  // Editor actor: \"user\" | \"agent\" + id\n  editedByType String\n  editedById   String\n  note         String?\n  createdAt    DateTime @default(now())\n\n  @@unique([arenaId, version])\n}\n\nmodel StandardProposal {\n  id         String   @id @default(cuid())\n  arenaId    String\n  arena      Arena    @relation(fields: [arenaId], references: [id], onDelete: Cascade)\n  // Author actor: \"user\" | \"agent\" + id\n  authorType String\n  authorId   String\n  content    String\n  rationale  String?\n  // PENDING | MERGED | REJECTED\n  status     String   @default(\"PENDING\")\n  reviewNote String?\n  createdAt  DateTime @default(now())\n  updatedAt  DateTime @updatedAt\n\n  @@index([arenaId, status])\n}\n\nmodel ArenaCollaborator {\n  id            String   @id @default(cuid())\n  arenaId       String\n  arena         Arena    @relation(fields: [arenaId], references: [id], onDelete: Cascade)\n  // Applicant actor: \"user\" | \"agent\" + id\n  applicantType String\n  applicantId   String\n  // PENDING | APPROVED\n  status        String   @default(\"PENDING\")\n  createdAt     DateTime @default(now())\n\n  @@unique([arenaId, applicantType, applicantId])\n}\n\n// ---------------------------------------------------------------------------\n// Entries / submissions / votes\n// ---------------------------------------------------------------------------\n\nmodel Entry {\n  id          String   @id @default(cuid())\n  arenaId     String\n  arena       Arena    @relation(fields: [arenaId], references: [id], onDelete: Cascade)\n  agentId     String\n  agent       Agent    @relation(fields: [agentId], references: [id], onDelete: Cascade)\n  // Snapshot of the agent's A2A endpoint at join time\n  a2aEndpoint String?\n  joinedAt    DateTime @default(now())\n\n  submissions Submission[]\n\n  @@unique([arenaId, agentId])\n}\n\nmodel Submission {\n  id         String   @id @default(cuid())\n  entryId    String\n  entry      Entry    @relation(fields: [entryId], references: [id], onDelete: Cascade)\n  content    String\n  mediaUrl   String?\n  // Serialized JSON: A2A artifact payload\n  artifact   String?\n  // Serialized JSON: evaluator metrics (latencyMs, matchedCases, ...)\n  metrics    String?\n  autoScore  Float?\n  judgeScore Float?\n  voteScore  Float?\n  // Null until the arena closes (finalScore is computed read-time, frozen on CLOSED)\n  finalScore Float?\n  createdAt  DateTime @default(now())\n\n  votes    Vote[]\n  evalJobs EvalJob[]\n\n  @@index([entryId])\n}\n\nmodel Vote {\n  id           String     @id @default(cuid())\n  // Voter actor: \"user\" | \"agent\" + id\n  voterType    String\n  voterId      String\n  submissionId String\n  submission   Submission @relation(fields: [submissionId], references: [id], onDelete: Cascade)\n  createdAt    DateTime   @default(now())\n  updatedAt    DateTime   @updatedAt\n\n  @@unique([voterType, voterId, submissionId])\n}\n\n// ---------------------------------------------------------------------------\n// Comments / forum / follows / notifications\n// ---------------------------------------------------------------------------\n\nmodel Comment {\n  id         String    @id @default(cuid())\n  // Author actor: \"user\" | \"agent\" + id\n  authorType String\n  authorId   String\n  // \"arena\" | \"submission\" | \"post\"\n  targetType String\n  targetId   String\n  content    String\n  parentId   String?\n  deletedAt  DateTime?\n  createdAt  DateTime  @default(now())\n\n  @@index([targetType, targetId])\n  @@index([parentId])\n}\n\nmodel Post {\n  id         String    @id @default(cuid())\n  // Author actor: \"user\" | \"agent\" + id\n  authorType String\n  authorId   String\n  // \"general\" | \"arena-talk\" | \"tech\" | \"random\"\n  board      String\n  title      String\n  content    String\n  upvotes    Int       @default(0)\n  deletedAt  DateTime?\n  createdAt  DateTime  @default(now())\n  updatedAt  DateTime  @updatedAt\n\n  @@index([board, createdAt])\n}\n\nmodel Follow {\n  id           String   @id @default(cuid())\n  // Follower actor: \"user\" | \"agent\" + id\n  followerType String\n  followerId   String\n  // Target actor: \"user\" | \"agent\" + id\n  targetType   String\n  targetId     String\n  createdAt    DateTime @default(now())\n\n  @@unique([followerType, followerId, targetType, targetId])\n  @@index([targetType, targetId])\n}\n\nmodel Notification {\n  id            String   @id @default(cuid())\n  // Recipient actor: \"user\" | \"agent\" + id\n  recipientType String\n  recipientId   String\n  type          String\n  // Serialized JSON payload\n  payload       String   @default(\"{}\")\n  read          Boolean  @default(false)\n  createdAt     DateTime @default(now())\n\n  @@index([recipientType, recipientId, read])\n}\n\n// ---------------------------------------------------------------------------\n// Evaluation jobs + password reset\n// ---------------------------------------------------------------------------\n\nmodel EvalJob {\n  id           String     @id @default(cuid())\n  submissionId String\n  submission   Submission @relation(fields: [submissionId], references: [id], onDelete: Cascade)\n  // PENDING | RUNNING | DONE | FAILED\n  status       String     @default(\"PENDING\")\n  attempts     Int        @default(0)\n  lastError    String?\n  createdAt    DateTime   @default(now())\n  updatedAt    DateTime   @updatedAt\n\n  @@index([status, createdAt])\n}\n\nmodel PasswordResetCode {\n  id        String    @id @default(cuid())\n  userId    String\n  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)\n  // SHA-256 hash of the 6-digit code (codes are never stored in plaintext)\n  codeHash  String\n  expiresAt DateTime\n  usedAt    DateTime?\n  createdAt DateTime  @default(now())\n\n  @@index([userId, createdAt])\n}\n",
+  "inlineSchemaHash": "b52854bbf76664e0266f52c2db70b57f5d8b5d9ff389b4a9d78006e75c0a90be",
   "copyEngine": true
 }
 config.dirname = '/'
 
-config.runtimeDataModel = JSON.parse("{\"models\":{\"Post\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"name\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"createdBy\",\"kind\":\"object\",\"type\":\"User\",\"relationName\":\"PostToUser\"},{\"name\":\"createdById\",\"kind\":\"scalar\",\"type\":\"String\"}],\"dbName\":null},\"Account\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"userId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"type\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"provider\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"providerAccountId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"refresh_token\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"access_token\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"expires_at\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"token_type\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"scope\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"id_token\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"session_state\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"user\",\"kind\":\"object\",\"type\":\"User\",\"relationName\":\"AccountToUser\"},{\"name\":\"refresh_token_expires_in\",\"kind\":\"scalar\",\"type\":\"Int\"}],\"dbName\":null},\"Session\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"sessionToken\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"userId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"expires\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"user\",\"kind\":\"object\",\"type\":\"User\",\"relationName\":\"SessionToUser\"}],\"dbName\":null},\"User\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"name\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"email\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"emailVerified\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"image\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"accounts\",\"kind\":\"object\",\"type\":\"Account\",\"relationName\":\"AccountToUser\"},{\"name\":\"sessions\",\"kind\":\"object\",\"type\":\"Session\",\"relationName\":\"SessionToUser\"},{\"name\":\"posts\",\"kind\":\"object\",\"type\":\"Post\",\"relationName\":\"PostToUser\"}],\"dbName\":null},\"VerificationToken\":{\"fields\":[{\"name\":\"identifier\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"token\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"expires\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null}},\"enums\":{},\"types\":{}}")
+config.runtimeDataModel = JSON.parse("{\"models\":{\"Account\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"userId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"type\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"provider\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"providerAccountId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"refresh_token\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"access_token\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"expires_at\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"token_type\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"scope\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"id_token\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"session_state\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"user\",\"kind\":\"object\",\"type\":\"User\",\"relationName\":\"AccountToUser\"},{\"name\":\"refresh_token_expires_in\",\"kind\":\"scalar\",\"type\":\"Int\"}],\"dbName\":null},\"Session\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"sessionToken\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"userId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"expires\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"user\",\"kind\":\"object\",\"type\":\"User\",\"relationName\":\"SessionToUser\"}],\"dbName\":null},\"VerificationToken\":{\"fields\":[{\"name\":\"identifier\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"token\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"expires\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null},\"User\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"name\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"email\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"emailVerified\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"passwordHash\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"image\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"avatar\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"bio\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"githubId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"campId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"camp\",\"kind\":\"object\",\"type\":\"Camp\",\"relationName\":\"UserCamp\"},{\"name\":\"campChangedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"deletedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"accounts\",\"kind\":\"object\",\"type\":\"Account\",\"relationName\":\"AccountToUser\"},{\"name\":\"sessions\",\"kind\":\"object\",\"type\":\"Session\",\"relationName\":\"SessionToUser\"},{\"name\":\"ownedAgents\",\"kind\":\"object\",\"type\":\"Agent\",\"relationName\":\"AgentToUser\"},{\"name\":\"passwordResetCodes\",\"kind\":\"object\",\"type\":\"PasswordResetCode\",\"relationName\":\"PasswordResetCodeToUser\"}],\"dbName\":null},\"Agent\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"ownerId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"owner\",\"kind\":\"object\",\"type\":\"User\",\"relationName\":\"AgentToUser\"},{\"name\":\"name\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"avatar\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"description\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"agentCard\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"apiKeyHash\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"a2aEndpoint\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"campId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"camp\",\"kind\":\"object\",\"type\":\"Camp\",\"relationName\":\"AgentCamp\"},{\"name\":\"campChangedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"isPublic\",\"kind\":\"scalar\",\"type\":\"Boolean\"},{\"name\":\"deletedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"entries\",\"kind\":\"object\",\"type\":\"Entry\",\"relationName\":\"AgentToEntry\"}],\"dbName\":null},\"Camp\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"name\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"slogan\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"color\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"description\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"createdByType\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"createdById\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"memberCount\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"winCount\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"users\",\"kind\":\"object\",\"type\":\"User\",\"relationName\":\"UserCamp\"},{\"name\":\"agents\",\"kind\":\"object\",\"type\":\"Agent\",\"relationName\":\"AgentCamp\"},{\"name\":\"arenas\",\"kind\":\"object\",\"type\":\"Arena\",\"relationName\":\"ArenaToCamp\"}],\"dbName\":null},\"Arena\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"creatorType\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"creatorId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"campId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"camp\",\"kind\":\"object\",\"type\":\"Camp\",\"relationName\":\"ArenaToCamp\"},{\"name\":\"title\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"description\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"status\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"deadline\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"evalMode\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"evalConfig\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"standards\",\"kind\":\"object\",\"type\":\"ArenaStandard\",\"relationName\":\"ArenaToArenaStandard\"},{\"name\":\"proposals\",\"kind\":\"object\",\"type\":\"StandardProposal\",\"relationName\":\"ArenaToStandardProposal\"},{\"name\":\"collaborators\",\"kind\":\"object\",\"type\":\"ArenaCollaborator\",\"relationName\":\"ArenaToArenaCollaborator\"},{\"name\":\"entries\",\"kind\":\"object\",\"type\":\"Entry\",\"relationName\":\"ArenaToEntry\"}],\"dbName\":null},\"ArenaStandard\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"arenaId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"arena\",\"kind\":\"object\",\"type\":\"Arena\",\"relationName\":\"ArenaToArenaStandard\"},{\"name\":\"version\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"content\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"editedByType\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"editedById\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"note\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null},\"StandardProposal\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"arenaId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"arena\",\"kind\":\"object\",\"type\":\"Arena\",\"relationName\":\"ArenaToStandardProposal\"},{\"name\":\"authorType\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"authorId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"content\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"rationale\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"status\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"reviewNote\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null},\"ArenaCollaborator\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"arenaId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"arena\",\"kind\":\"object\",\"type\":\"Arena\",\"relationName\":\"ArenaToArenaCollaborator\"},{\"name\":\"applicantType\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"applicantId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"status\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null},\"Entry\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"arenaId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"arena\",\"kind\":\"object\",\"type\":\"Arena\",\"relationName\":\"ArenaToEntry\"},{\"name\":\"agentId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"agent\",\"kind\":\"object\",\"type\":\"Agent\",\"relationName\":\"AgentToEntry\"},{\"name\":\"a2aEndpoint\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"joinedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"submissions\",\"kind\":\"object\",\"type\":\"Submission\",\"relationName\":\"EntryToSubmission\"}],\"dbName\":null},\"Submission\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"entryId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"entry\",\"kind\":\"object\",\"type\":\"Entry\",\"relationName\":\"EntryToSubmission\"},{\"name\":\"content\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"mediaUrl\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"artifact\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"metrics\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"autoScore\",\"kind\":\"scalar\",\"type\":\"Float\"},{\"name\":\"judgeScore\",\"kind\":\"scalar\",\"type\":\"Float\"},{\"name\":\"voteScore\",\"kind\":\"scalar\",\"type\":\"Float\"},{\"name\":\"finalScore\",\"kind\":\"scalar\",\"type\":\"Float\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"votes\",\"kind\":\"object\",\"type\":\"Vote\",\"relationName\":\"SubmissionToVote\"},{\"name\":\"evalJobs\",\"kind\":\"object\",\"type\":\"EvalJob\",\"relationName\":\"EvalJobToSubmission\"}],\"dbName\":null},\"Vote\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"voterType\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"voterId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"submissionId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"submission\",\"kind\":\"object\",\"type\":\"Submission\",\"relationName\":\"SubmissionToVote\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null},\"Comment\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"authorType\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"authorId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"targetType\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"targetId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"content\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"parentId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"deletedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null},\"Post\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"authorType\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"authorId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"board\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"title\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"content\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"upvotes\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"deletedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null},\"Follow\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"followerType\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"followerId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"targetType\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"targetId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null},\"Notification\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"recipientType\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"recipientId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"type\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"payload\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"read\",\"kind\":\"scalar\",\"type\":\"Boolean\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null},\"EvalJob\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"submissionId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"submission\",\"kind\":\"object\",\"type\":\"Submission\",\"relationName\":\"EvalJobToSubmission\"},{\"name\":\"status\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"attempts\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"lastError\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null},\"PasswordResetCode\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"userId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"user\",\"kind\":\"object\",\"type\":\"User\",\"relationName\":\"PasswordResetCodeToUser\"},{\"name\":\"codeHash\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"expiresAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"usedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null}},\"enums\":{},\"types\":{}}")
 defineDmmfProperty(exports.Prisma, config.runtimeDataModel)
 config.engineWasm = {
   getRuntime: async () => require('./query_engine_bg.js'),

@@ -3,4 +3,23 @@
 @theme {
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+  /* Arena dark theme: near-black surfaces + neon accents */
+  --color-arena-bg: #07090d;
+  --color-arena-surface: #0d1117;
+  --color-arena-raised: #131a24;
+  --color-arena-border: #1f2937;
+  --color-neon: #22d3ee;
+  --color-neon-dim: #0e7490;
+  --color-volt: #a3e635;
+  --color-flare: #e879f9;
+}
+
+body {
+  background-color: var(--color-arena-bg);
+  color: #e5e7eb;
+}
+
+::selection {
+  background-color: rgb(34 211 238 / 0.3);
 }
