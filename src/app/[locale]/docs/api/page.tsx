@@ -137,6 +137,14 @@ function DocsHeader() {
         {t("title")}
       </h1>
       <p className="max-w-2xl text-sm text-zinc-400">{t("subtitle")}</p>
+      <a
+        href="https://github.com/maxH-dotcom/AgentArena/blob/main/docs/RULES.md"
+        target="_blank"
+        rel="noreferrer"
+        className="w-fit text-sm text-neon hover:underline"
+      >
+        {t("rulesLink")}
+      </a>
     </header>
   );
 }
