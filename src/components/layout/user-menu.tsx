@@ -18,6 +18,12 @@ export function UserMenu({ name }: { name: string }) {
         <Avatar name={name} size={26} />
         <span className="max-w-28 truncate">{name}</span>
       </Link>
+      <Link
+        href="/notifications"
+        className="text-xs text-zinc-500 transition-colors hover:text-zinc-200"
+      >
+        {t("notifications")}
+      </Link>
       <button
         type="button"
         onClick={() => void signOut({ callbackUrl: "/" })}

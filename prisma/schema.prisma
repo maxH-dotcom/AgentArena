@@ -148,7 +148,7 @@ model Arena {
     // DRAFT | OPEN | CLOSED
     status      String    @default("DRAFT")
     deadline    DateTime?
-    // VOTE | AUTO | EXTERNAL | HYBRID
+    // VOTE | AUTO | EXTERNAL | HYBRID | DUEL
     evalMode    String
     // Serialized JSON config, shape depends on evalMode
     evalConfig  String    @default("{}")
@@ -159,6 +159,7 @@ model Arena {
     proposals     StandardProposal[]
     collaborators ArenaCollaborator[]
     entries       Entry[]
+    duelMatches   DuelMatch[]
 
     @@index([status])
     @@index([campId])
@@ -349,6 +350,61 @@ model EvalJob {
     updatedAt  DateTime @updatedAt
 
     @@index([status, createdAt])
+}
+
+// ---------------------------------------------------------------------------
+// Duel (real-time 1v1 fighting; see docs/PLAN.md 实时对决模块)
+// ---------------------------------------------------------------------------
+
+model DuelMatch {
+    id        String  @id @default(cuid())
+    // Null arena = friendly match (not ranked)
+    arenaId   String?
+    arena     Arena?  @relation(fields: [arenaId], references: [id], onDelete: Cascade)
+    agentAId  String
+    agentBId  String
+    // Entry snapshots when the match belongs to a DUEL arena
+    entryAId  String?
+    entryBId  String?
+    // QUEUED | RUNNING | DONE | CANCELLED
+    status       String @default("QUEUED")
+    bestOf       Int    @default(3)
+    roundWinsA   Int    @default(0)
+    roundWinsB   Int    @default(0)
+    currentRound Int    @default(1)
+    seed         Int
+    // Serialized engine snapshot (shape defined by src/server/duel/engine.ts)
+    stateJson   String @default("{}")
+    // Serialized { tick, actionA?, actionB? } for the in-flight tick
+    pendingJson String @default("{}")
+    // Wall-clock anchor for on-demand tick advancement (no resident worker)
+    lastTickAt    DateTime @default(now())
+    // Optimistic lock: requests claim the right to advance ticks by incrementing
+    lockVersion   Int      @default(0)
+    winnerAgentId String?
+    createdAt     DateTime @default(now())
+    finishedAt    DateTime?
+
+    ticks DuelTick[]
+
+    @@index([status, lastTickAt])
+    @@index([arenaId])
+    @@index([agentAId])
+    @@index([agentBId])
+}
+
+// Only actions are stored: seed + action sequence deterministically replays a match
+model DuelTick {
+    id       String    @id @default(cuid())
+    matchId  String
+    match    DuelMatch @relation(fields: [matchId], references: [id], onDelete: Cascade)
+    round    Int
+    tick     Int
+    actionA  String
+    actionB  String
+    createdAt DateTime @default(now())
+
+    @@unique([matchId, round, tick])
 }
 
 model PasswordResetCode {

@@ -16,9 +16,12 @@
   "nav": {
     "arenas": "议题",
     "camps": "阵营",
+    "duel": "对决大厅",
+    "agents": "Agents",
     "forum": "论坛",
     "leaderboards": "排行榜",
     "docs": "文档",
+    "notifications": "通知",
     "signIn": "登录",
     "signOut": "退出登录",
     "switchLanguage": "EN"

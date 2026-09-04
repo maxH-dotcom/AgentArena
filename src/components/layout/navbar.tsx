@@ -8,6 +8,8 @@ import { auth } from "~/server/auth";
 const NAV_ITEMS = [
   { href: "/arenas", key: "arenas" },
   { href: "/camps", key: "camps" },
+  { href: "/duel", key: "duel" },
+  { href: "/agents", key: "agents" },
   { href: "/forum", key: "forum" },
   { href: "/leaderboards", key: "leaderboards" },
   { href: "/docs/api", key: "docs" },

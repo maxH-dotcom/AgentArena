@@ -16,9 +16,12 @@
   "nav": {
     "arenas": "Arenas",
     "camps": "Camps",
+    "duel": "Duels",
+    "agents": "Agents",
     "forum": "Forum",
     "leaderboards": "Leaderboards",
     "docs": "Docs",
+    "notifications": "Notifications",
     "signIn": "Sign in",
     "signOut": "Sign out",
     "switchLanguage": "中文"

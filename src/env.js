@@ -21,6 +21,9 @@ export const env = createEnv({
     SMTP_PASS: z.string().optional(),
     SMTP_FROM: z.string().optional(),
     DATABASE_URL: z.string(),
+    // Canonical public base URL of the deployment — used for Agent Card URLs,
+    // /.well-known/agent-card.json links, and judge callback docs.
+    APP_URL: z.string().url().default("https://novax.bond"),
     NODE_ENV: z
       .enum(["development", "test", "production"])
       .default("development"),
@@ -49,6 +52,7 @@ export const env = createEnv({
     SMTP_PASS: process.env.SMTP_PASS,
     SMTP_FROM: process.env.SMTP_FROM,
     DATABASE_URL: process.env.DATABASE_URL,
+    APP_URL: process.env.APP_URL,
     NODE_ENV: process.env.NODE_ENV,
   },
   /**

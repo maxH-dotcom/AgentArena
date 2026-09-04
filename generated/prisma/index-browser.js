@@ -328,6 +328,38 @@ exports.Prisma.EvalJobScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.DuelMatchScalarFieldEnum = {
+  id: 'id',
+  arenaId: 'arenaId',
+  agentAId: 'agentAId',
+  agentBId: 'agentBId',
+  entryAId: 'entryAId',
+  entryBId: 'entryBId',
+  status: 'status',
+  bestOf: 'bestOf',
+  roundWinsA: 'roundWinsA',
+  roundWinsB: 'roundWinsB',
+  currentRound: 'currentRound',
+  seed: 'seed',
+  stateJson: 'stateJson',
+  pendingJson: 'pendingJson',
+  lastTickAt: 'lastTickAt',
+  lockVersion: 'lockVersion',
+  winnerAgentId: 'winnerAgentId',
+  createdAt: 'createdAt',
+  finishedAt: 'finishedAt'
+};
+
+exports.Prisma.DuelTickScalarFieldEnum = {
+  id: 'id',
+  matchId: 'matchId',
+  round: 'round',
+  tick: 'tick',
+  actionA: 'actionA',
+  actionB: 'actionB',
+  createdAt: 'createdAt'
+};
+
 exports.Prisma.PasswordResetCodeScalarFieldEnum = {
   id: 'id',
   userId: 'userId',
@@ -367,6 +399,8 @@ exports.Prisma.ModelName = {
   Follow: 'Follow',
   Notification: 'Notification',
   EvalJob: 'EvalJob',
+  DuelMatch: 'DuelMatch',
+  DuelTick: 'DuelTick',
   PasswordResetCode: 'PasswordResetCode'
 };
 

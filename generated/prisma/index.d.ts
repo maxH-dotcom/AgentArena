@@ -104,6 +104,16 @@ export type Notification = $Result.DefaultSelection<Prisma.$NotificationPayload>
  */
 export type EvalJob = $Result.DefaultSelection<Prisma.$EvalJobPayload>
 /**
+ * Model DuelMatch
+ * 
+ */
+export type DuelMatch = $Result.DefaultSelection<Prisma.$DuelMatchPayload>
+/**
+ * Model DuelTick
+ * 
+ */
+export type DuelTick = $Result.DefaultSelection<Prisma.$DuelTickPayload>
+/**
  * Model PasswordResetCode
  * 
  */
@@ -406,6 +416,26 @@ export class PrismaClient<
     * ```
     */
   get evalJob(): Prisma.EvalJobDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.duelMatch`: Exposes CRUD operations for the **DuelMatch** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more DuelMatches
+    * const duelMatches = await prisma.duelMatch.findMany()
+    * ```
+    */
+  get duelMatch(): Prisma.DuelMatchDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.duelTick`: Exposes CRUD operations for the **DuelTick** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more DuelTicks
+    * const duelTicks = await prisma.duelTick.findMany()
+    * ```
+    */
+  get duelTick(): Prisma.DuelTickDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.passwordResetCode`: Exposes CRUD operations for the **PasswordResetCode** model.
@@ -875,6 +905,8 @@ export namespace Prisma {
     Follow: 'Follow',
     Notification: 'Notification',
     EvalJob: 'EvalJob',
+    DuelMatch: 'DuelMatch',
+    DuelTick: 'DuelTick',
     PasswordResetCode: 'PasswordResetCode'
   };
 
@@ -894,7 +926,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "account" | "session" | "verificationToken" | "user" | "agent" | "camp" | "arena" | "arenaStandard" | "standardProposal" | "arenaCollaborator" | "entry" | "submission" | "vote" | "comment" | "post" | "follow" | "notification" | "evalJob" | "passwordResetCode"
+      modelProps: "account" | "session" | "verificationToken" | "user" | "agent" | "camp" | "arena" | "arenaStandard" | "standardProposal" | "arenaCollaborator" | "entry" | "submission" | "vote" | "comment" | "post" | "follow" | "notification" | "evalJob" | "duelMatch" | "duelTick" | "passwordResetCode"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -2230,6 +2262,154 @@ export namespace Prisma {
           }
         }
       }
+      DuelMatch: {
+        payload: Prisma.$DuelMatchPayload<ExtArgs>
+        fields: Prisma.DuelMatchFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.DuelMatchFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DuelMatchPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.DuelMatchFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DuelMatchPayload>
+          }
+          findFirst: {
+            args: Prisma.DuelMatchFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DuelMatchPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.DuelMatchFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DuelMatchPayload>
+          }
+          findMany: {
+            args: Prisma.DuelMatchFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DuelMatchPayload>[]
+          }
+          create: {
+            args: Prisma.DuelMatchCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DuelMatchPayload>
+          }
+          createMany: {
+            args: Prisma.DuelMatchCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.DuelMatchCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DuelMatchPayload>[]
+          }
+          delete: {
+            args: Prisma.DuelMatchDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DuelMatchPayload>
+          }
+          update: {
+            args: Prisma.DuelMatchUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DuelMatchPayload>
+          }
+          deleteMany: {
+            args: Prisma.DuelMatchDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.DuelMatchUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.DuelMatchUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DuelMatchPayload>[]
+          }
+          upsert: {
+            args: Prisma.DuelMatchUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DuelMatchPayload>
+          }
+          aggregate: {
+            args: Prisma.DuelMatchAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateDuelMatch>
+          }
+          groupBy: {
+            args: Prisma.DuelMatchGroupByArgs<ExtArgs>
+            result: $Utils.Optional<DuelMatchGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.DuelMatchCountArgs<ExtArgs>
+            result: $Utils.Optional<DuelMatchCountAggregateOutputType> | number
+          }
+        }
+      }
+      DuelTick: {
+        payload: Prisma.$DuelTickPayload<ExtArgs>
+        fields: Prisma.DuelTickFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.DuelTickFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DuelTickPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.DuelTickFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DuelTickPayload>
+          }
+          findFirst: {
+            args: Prisma.DuelTickFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DuelTickPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.DuelTickFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DuelTickPayload>
+          }
+          findMany: {
+            args: Prisma.DuelTickFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DuelTickPayload>[]
+          }
+          create: {
+            args: Prisma.DuelTickCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DuelTickPayload>
+          }
+          createMany: {
+            args: Prisma.DuelTickCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.DuelTickCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DuelTickPayload>[]
+          }
+          delete: {
+            args: Prisma.DuelTickDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DuelTickPayload>
+          }
+          update: {
+            args: Prisma.DuelTickUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DuelTickPayload>
+          }
+          deleteMany: {
+            args: Prisma.DuelTickDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.DuelTickUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.DuelTickUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DuelTickPayload>[]
+          }
+          upsert: {
+            args: Prisma.DuelTickUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DuelTickPayload>
+          }
+          aggregate: {
+            args: Prisma.DuelTickAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateDuelTick>
+          }
+          groupBy: {
+            args: Prisma.DuelTickGroupByArgs<ExtArgs>
+            result: $Utils.Optional<DuelTickGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.DuelTickCountArgs<ExtArgs>
+            result: $Utils.Optional<DuelTickCountAggregateOutputType> | number
+          }
+        }
+      }
       PasswordResetCode: {
         payload: Prisma.$PasswordResetCodePayload<ExtArgs>
         fields: Prisma.PasswordResetCodeFieldRefs
@@ -2418,6 +2598,8 @@ export namespace Prisma {
     follow?: FollowOmit
     notification?: NotificationOmit
     evalJob?: EvalJobOmit
+    duelMatch?: DuelMatchOmit
+    duelTick?: DuelTickOmit
     passwordResetCode?: PasswordResetCodeOmit
   }
 
@@ -2641,6 +2823,7 @@ export namespace Prisma {
     proposals: number
     collaborators: number
     entries: number
+    duelMatches: number
   }
 
   export type ArenaCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -2648,6 +2831,7 @@ export namespace Prisma {
     proposals?: boolean | ArenaCountOutputTypeCountProposalsArgs
     collaborators?: boolean | ArenaCountOutputTypeCountCollaboratorsArgs
     entries?: boolean | ArenaCountOutputTypeCountEntriesArgs
+    duelMatches?: boolean | ArenaCountOutputTypeCountDuelMatchesArgs
   }
 
   // Custom InputTypes
@@ -2687,6 +2871,13 @@ export namespace Prisma {
    */
   export type ArenaCountOutputTypeCountEntriesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: EntryWhereInput
+  }
+
+  /**
+   * ArenaCountOutputType without action
+   */
+  export type ArenaCountOutputTypeCountDuelMatchesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: DuelMatchWhereInput
   }
 
 
@@ -2758,6 +2949,37 @@ export namespace Prisma {
    */
   export type SubmissionCountOutputTypeCountEvalJobsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: EvalJobWhereInput
+  }
+
+
+  /**
+   * Count Type DuelMatchCountOutputType
+   */
+
+  export type DuelMatchCountOutputType = {
+    ticks: number
+  }
+
+  export type DuelMatchCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    ticks?: boolean | DuelMatchCountOutputTypeCountTicksArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * DuelMatchCountOutputType without action
+   */
+  export type DuelMatchCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DuelMatchCountOutputType
+     */
+    select?: DuelMatchCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * DuelMatchCountOutputType without action
+   */
+  export type DuelMatchCountOutputTypeCountTicksArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: DuelTickWhereInput
   }
 
 
@@ -9993,6 +10215,7 @@ export namespace Prisma {
     proposals?: boolean | Arena$proposalsArgs<ExtArgs>
     collaborators?: boolean | Arena$collaboratorsArgs<ExtArgs>
     entries?: boolean | Arena$entriesArgs<ExtArgs>
+    duelMatches?: boolean | Arena$duelMatchesArgs<ExtArgs>
     _count?: boolean | ArenaCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["arena"]>
 
@@ -10050,6 +10273,7 @@ export namespace Prisma {
     proposals?: boolean | Arena$proposalsArgs<ExtArgs>
     collaborators?: boolean | Arena$collaboratorsArgs<ExtArgs>
     entries?: boolean | Arena$entriesArgs<ExtArgs>
+    duelMatches?: boolean | Arena$duelMatchesArgs<ExtArgs>
     _count?: boolean | ArenaCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type ArenaIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -10067,6 +10291,7 @@ export namespace Prisma {
       proposals: Prisma.$StandardProposalPayload<ExtArgs>[]
       collaborators: Prisma.$ArenaCollaboratorPayload<ExtArgs>[]
       entries: Prisma.$EntryPayload<ExtArgs>[]
+      duelMatches: Prisma.$DuelMatchPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -10480,6 +10705,7 @@ export namespace Prisma {
     proposals<T extends Arena$proposalsArgs<ExtArgs> = {}>(args?: Subset<T, Arena$proposalsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$StandardProposalPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     collaborators<T extends Arena$collaboratorsArgs<ExtArgs> = {}>(args?: Subset<T, Arena$collaboratorsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ArenaCollaboratorPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     entries<T extends Arena$entriesArgs<ExtArgs> = {}>(args?: Subset<T, Arena$entriesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EntryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    duelMatches<T extends Arena$duelMatchesArgs<ExtArgs> = {}>(args?: Subset<T, Arena$duelMatchesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DuelMatchPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -11027,6 +11253,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: EntryScalarFieldEnum | EntryScalarFieldEnum[]
+  }
+
+  /**
+   * Arena.duelMatches
+   */
+  export type Arena$duelMatchesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DuelMatch
+     */
+    select?: DuelMatchSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DuelMatch
+     */
+    omit?: DuelMatchOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DuelMatchInclude<ExtArgs> | null
+    where?: DuelMatchWhereInput
+    orderBy?: DuelMatchOrderByWithRelationInput | DuelMatchOrderByWithRelationInput[]
+    cursor?: DuelMatchWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: DuelMatchScalarFieldEnum | DuelMatchScalarFieldEnum[]
   }
 
   /**
@@ -23047,6 +23297,2467 @@ export namespace Prisma {
 
 
   /**
+   * Model DuelMatch
+   */
+
+  export type AggregateDuelMatch = {
+    _count: DuelMatchCountAggregateOutputType | null
+    _avg: DuelMatchAvgAggregateOutputType | null
+    _sum: DuelMatchSumAggregateOutputType | null
+    _min: DuelMatchMinAggregateOutputType | null
+    _max: DuelMatchMaxAggregateOutputType | null
+  }
+
+  export type DuelMatchAvgAggregateOutputType = {
+    bestOf: number | null
+    roundWinsA: number | null
+    roundWinsB: number | null
+    currentRound: number | null
+    seed: number | null
+    lockVersion: number | null
+  }
+
+  export type DuelMatchSumAggregateOutputType = {
+    bestOf: number | null
+    roundWinsA: number | null
+    roundWinsB: number | null
+    currentRound: number | null
+    seed: number | null
+    lockVersion: number | null
+  }
+
+  export type DuelMatchMinAggregateOutputType = {
+    id: string | null
+    arenaId: string | null
+    agentAId: string | null
+    agentBId: string | null
+    entryAId: string | null
+    entryBId: string | null
+    status: string | null
+    bestOf: number | null
+    roundWinsA: number | null
+    roundWinsB: number | null
+    currentRound: number | null
+    seed: number | null
+    stateJson: string | null
+    pendingJson: string | null
+    lastTickAt: Date | null
+    lockVersion: number | null
+    winnerAgentId: string | null
+    createdAt: Date | null
+    finishedAt: Date | null
+  }
+
+  export type DuelMatchMaxAggregateOutputType = {
+    id: string | null
+    arenaId: string | null
+    agentAId: string | null
+    agentBId: string | null
+    entryAId: string | null
+    entryBId: string | null
+    status: string | null
+    bestOf: number | null
+    roundWinsA: number | null
+    roundWinsB: number | null
+    currentRound: number | null
+    seed: number | null
+    stateJson: string | null
+    pendingJson: string | null
+    lastTickAt: Date | null
+    lockVersion: number | null
+    winnerAgentId: string | null
+    createdAt: Date | null
+    finishedAt: Date | null
+  }
+
+  export type DuelMatchCountAggregateOutputType = {
+    id: number
+    arenaId: number
+    agentAId: number
+    agentBId: number
+    entryAId: number
+    entryBId: number
+    status: number
+    bestOf: number
+    roundWinsA: number
+    roundWinsB: number
+    currentRound: number
+    seed: number
+    stateJson: number
+    pendingJson: number
+    lastTickAt: number
+    lockVersion: number
+    winnerAgentId: number
+    createdAt: number
+    finishedAt: number
+    _all: number
+  }
+
+
+  export type DuelMatchAvgAggregateInputType = {
+    bestOf?: true
+    roundWinsA?: true
+    roundWinsB?: true
+    currentRound?: true
+    seed?: true
+    lockVersion?: true
+  }
+
+  export type DuelMatchSumAggregateInputType = {
+    bestOf?: true
+    roundWinsA?: true
+    roundWinsB?: true
+    currentRound?: true
+    seed?: true
+    lockVersion?: true
+  }
+
+  export type DuelMatchMinAggregateInputType = {
+    id?: true
+    arenaId?: true
+    agentAId?: true
+    agentBId?: true
+    entryAId?: true
+    entryBId?: true
+    status?: true
+    bestOf?: true
+    roundWinsA?: true
+    roundWinsB?: true
+    currentRound?: true
+    seed?: true
+    stateJson?: true
+    pendingJson?: true
+    lastTickAt?: true
+    lockVersion?: true
+    winnerAgentId?: true
+    createdAt?: true
+    finishedAt?: true
+  }
+
+  export type DuelMatchMaxAggregateInputType = {
+    id?: true
+    arenaId?: true
+    agentAId?: true
+    agentBId?: true
+    entryAId?: true
+    entryBId?: true
+    status?: true
+    bestOf?: true
+    roundWinsA?: true
+    roundWinsB?: true
+    currentRound?: true
+    seed?: true
+    stateJson?: true
+    pendingJson?: true
+    lastTickAt?: true
+    lockVersion?: true
+    winnerAgentId?: true
+    createdAt?: true
+    finishedAt?: true
+  }
+
+  export type DuelMatchCountAggregateInputType = {
+    id?: true
+    arenaId?: true
+    agentAId?: true
+    agentBId?: true
+    entryAId?: true
+    entryBId?: true
+    status?: true
+    bestOf?: true
+    roundWinsA?: true
+    roundWinsB?: true
+    currentRound?: true
+    seed?: true
+    stateJson?: true
+    pendingJson?: true
+    lastTickAt?: true
+    lockVersion?: true
+    winnerAgentId?: true
+    createdAt?: true
+    finishedAt?: true
+    _all?: true
+  }
+
+  export type DuelMatchAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which DuelMatch to aggregate.
+     */
+    where?: DuelMatchWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of DuelMatches to fetch.
+     */
+    orderBy?: DuelMatchOrderByWithRelationInput | DuelMatchOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: DuelMatchWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` DuelMatches from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` DuelMatches.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned DuelMatches
+    **/
+    _count?: true | DuelMatchCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: DuelMatchAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: DuelMatchSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: DuelMatchMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: DuelMatchMaxAggregateInputType
+  }
+
+  export type GetDuelMatchAggregateType<T extends DuelMatchAggregateArgs> = {
+        [P in keyof T & keyof AggregateDuelMatch]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateDuelMatch[P]>
+      : GetScalarType<T[P], AggregateDuelMatch[P]>
+  }
+
+
+
+
+  export type DuelMatchGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: DuelMatchWhereInput
+    orderBy?: DuelMatchOrderByWithAggregationInput | DuelMatchOrderByWithAggregationInput[]
+    by: DuelMatchScalarFieldEnum[] | DuelMatchScalarFieldEnum
+    having?: DuelMatchScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: DuelMatchCountAggregateInputType | true
+    _avg?: DuelMatchAvgAggregateInputType
+    _sum?: DuelMatchSumAggregateInputType
+    _min?: DuelMatchMinAggregateInputType
+    _max?: DuelMatchMaxAggregateInputType
+  }
+
+  export type DuelMatchGroupByOutputType = {
+    id: string
+    arenaId: string | null
+    agentAId: string
+    agentBId: string
+    entryAId: string | null
+    entryBId: string | null
+    status: string
+    bestOf: number
+    roundWinsA: number
+    roundWinsB: number
+    currentRound: number
+    seed: number
+    stateJson: string
+    pendingJson: string
+    lastTickAt: Date
+    lockVersion: number
+    winnerAgentId: string | null
+    createdAt: Date
+    finishedAt: Date | null
+    _count: DuelMatchCountAggregateOutputType | null
+    _avg: DuelMatchAvgAggregateOutputType | null
+    _sum: DuelMatchSumAggregateOutputType | null
+    _min: DuelMatchMinAggregateOutputType | null
+    _max: DuelMatchMaxAggregateOutputType | null
+  }
+
+  type GetDuelMatchGroupByPayload<T extends DuelMatchGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<DuelMatchGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof DuelMatchGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], DuelMatchGroupByOutputType[P]>
+            : GetScalarType<T[P], DuelMatchGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type DuelMatchSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    arenaId?: boolean
+    agentAId?: boolean
+    agentBId?: boolean
+    entryAId?: boolean
+    entryBId?: boolean
+    status?: boolean
+    bestOf?: boolean
+    roundWinsA?: boolean
+    roundWinsB?: boolean
+    currentRound?: boolean
+    seed?: boolean
+    stateJson?: boolean
+    pendingJson?: boolean
+    lastTickAt?: boolean
+    lockVersion?: boolean
+    winnerAgentId?: boolean
+    createdAt?: boolean
+    finishedAt?: boolean
+    arena?: boolean | DuelMatch$arenaArgs<ExtArgs>
+    ticks?: boolean | DuelMatch$ticksArgs<ExtArgs>
+    _count?: boolean | DuelMatchCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["duelMatch"]>
+
+  export type DuelMatchSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    arenaId?: boolean
+    agentAId?: boolean
+    agentBId?: boolean
+    entryAId?: boolean
+    entryBId?: boolean
+    status?: boolean
+    bestOf?: boolean
+    roundWinsA?: boolean
+    roundWinsB?: boolean
+    currentRound?: boolean
+    seed?: boolean
+    stateJson?: boolean
+    pendingJson?: boolean
+    lastTickAt?: boolean
+    lockVersion?: boolean
+    winnerAgentId?: boolean
+    createdAt?: boolean
+    finishedAt?: boolean
+    arena?: boolean | DuelMatch$arenaArgs<ExtArgs>
+  }, ExtArgs["result"]["duelMatch"]>
+
+  export type DuelMatchSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    arenaId?: boolean
+    agentAId?: boolean
+    agentBId?: boolean
+    entryAId?: boolean
+    entryBId?: boolean
+    status?: boolean
+    bestOf?: boolean
+    roundWinsA?: boolean
+    roundWinsB?: boolean
+    currentRound?: boolean
+    seed?: boolean
+    stateJson?: boolean
+    pendingJson?: boolean
+    lastTickAt?: boolean
+    lockVersion?: boolean
+    winnerAgentId?: boolean
+    createdAt?: boolean
+    finishedAt?: boolean
+    arena?: boolean | DuelMatch$arenaArgs<ExtArgs>
+  }, ExtArgs["result"]["duelMatch"]>
+
+  export type DuelMatchSelectScalar = {
+    id?: boolean
+    arenaId?: boolean
+    agentAId?: boolean
+    agentBId?: boolean
+    entryAId?: boolean
+    entryBId?: boolean
+    status?: boolean
+    bestOf?: boolean
+    roundWinsA?: boolean
+    roundWinsB?: boolean
+    currentRound?: boolean
+    seed?: boolean
+    stateJson?: boolean
+    pendingJson?: boolean
+    lastTickAt?: boolean
+    lockVersion?: boolean
+    winnerAgentId?: boolean
+    createdAt?: boolean
+    finishedAt?: boolean
+  }
+
+  export type DuelMatchOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "arenaId" | "agentAId" | "agentBId" | "entryAId" | "entryBId" | "status" | "bestOf" | "roundWinsA" | "roundWinsB" | "currentRound" | "seed" | "stateJson" | "pendingJson" | "lastTickAt" | "lockVersion" | "winnerAgentId" | "createdAt" | "finishedAt", ExtArgs["result"]["duelMatch"]>
+  export type DuelMatchInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    arena?: boolean | DuelMatch$arenaArgs<ExtArgs>
+    ticks?: boolean | DuelMatch$ticksArgs<ExtArgs>
+    _count?: boolean | DuelMatchCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type DuelMatchIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    arena?: boolean | DuelMatch$arenaArgs<ExtArgs>
+  }
+  export type DuelMatchIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    arena?: boolean | DuelMatch$arenaArgs<ExtArgs>
+  }
+
+  export type $DuelMatchPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "DuelMatch"
+    objects: {
+      arena: Prisma.$ArenaPayload<ExtArgs> | null
+      ticks: Prisma.$DuelTickPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      arenaId: string | null
+      agentAId: string
+      agentBId: string
+      entryAId: string | null
+      entryBId: string | null
+      status: string
+      bestOf: number
+      roundWinsA: number
+      roundWinsB: number
+      currentRound: number
+      seed: number
+      stateJson: string
+      pendingJson: string
+      lastTickAt: Date
+      lockVersion: number
+      winnerAgentId: string | null
+      createdAt: Date
+      finishedAt: Date | null
+    }, ExtArgs["result"]["duelMatch"]>
+    composites: {}
+  }
+
+  type DuelMatchGetPayload<S extends boolean | null | undefined | DuelMatchDefaultArgs> = $Result.GetResult<Prisma.$DuelMatchPayload, S>
+
+  type DuelMatchCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<DuelMatchFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: DuelMatchCountAggregateInputType | true
+    }
+
+  export interface DuelMatchDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['DuelMatch'], meta: { name: 'DuelMatch' } }
+    /**
+     * Find zero or one DuelMatch that matches the filter.
+     * @param {DuelMatchFindUniqueArgs} args - Arguments to find a DuelMatch
+     * @example
+     * // Get one DuelMatch
+     * const duelMatch = await prisma.duelMatch.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends DuelMatchFindUniqueArgs>(args: SelectSubset<T, DuelMatchFindUniqueArgs<ExtArgs>>): Prisma__DuelMatchClient<$Result.GetResult<Prisma.$DuelMatchPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one DuelMatch that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {DuelMatchFindUniqueOrThrowArgs} args - Arguments to find a DuelMatch
+     * @example
+     * // Get one DuelMatch
+     * const duelMatch = await prisma.duelMatch.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends DuelMatchFindUniqueOrThrowArgs>(args: SelectSubset<T, DuelMatchFindUniqueOrThrowArgs<ExtArgs>>): Prisma__DuelMatchClient<$Result.GetResult<Prisma.$DuelMatchPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first DuelMatch that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DuelMatchFindFirstArgs} args - Arguments to find a DuelMatch
+     * @example
+     * // Get one DuelMatch
+     * const duelMatch = await prisma.duelMatch.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends DuelMatchFindFirstArgs>(args?: SelectSubset<T, DuelMatchFindFirstArgs<ExtArgs>>): Prisma__DuelMatchClient<$Result.GetResult<Prisma.$DuelMatchPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first DuelMatch that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DuelMatchFindFirstOrThrowArgs} args - Arguments to find a DuelMatch
+     * @example
+     * // Get one DuelMatch
+     * const duelMatch = await prisma.duelMatch.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends DuelMatchFindFirstOrThrowArgs>(args?: SelectSubset<T, DuelMatchFindFirstOrThrowArgs<ExtArgs>>): Prisma__DuelMatchClient<$Result.GetResult<Prisma.$DuelMatchPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more DuelMatches that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DuelMatchFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all DuelMatches
+     * const duelMatches = await prisma.duelMatch.findMany()
+     * 
+     * // Get first 10 DuelMatches
+     * const duelMatches = await prisma.duelMatch.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const duelMatchWithIdOnly = await prisma.duelMatch.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends DuelMatchFindManyArgs>(args?: SelectSubset<T, DuelMatchFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DuelMatchPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a DuelMatch.
+     * @param {DuelMatchCreateArgs} args - Arguments to create a DuelMatch.
+     * @example
+     * // Create one DuelMatch
+     * const DuelMatch = await prisma.duelMatch.create({
+     *   data: {
+     *     // ... data to create a DuelMatch
+     *   }
+     * })
+     * 
+     */
+    create<T extends DuelMatchCreateArgs>(args: SelectSubset<T, DuelMatchCreateArgs<ExtArgs>>): Prisma__DuelMatchClient<$Result.GetResult<Prisma.$DuelMatchPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many DuelMatches.
+     * @param {DuelMatchCreateManyArgs} args - Arguments to create many DuelMatches.
+     * @example
+     * // Create many DuelMatches
+     * const duelMatch = await prisma.duelMatch.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends DuelMatchCreateManyArgs>(args?: SelectSubset<T, DuelMatchCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many DuelMatches and returns the data saved in the database.
+     * @param {DuelMatchCreateManyAndReturnArgs} args - Arguments to create many DuelMatches.
+     * @example
+     * // Create many DuelMatches
+     * const duelMatch = await prisma.duelMatch.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many DuelMatches and only return the `id`
+     * const duelMatchWithIdOnly = await prisma.duelMatch.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends DuelMatchCreateManyAndReturnArgs>(args?: SelectSubset<T, DuelMatchCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DuelMatchPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a DuelMatch.
+     * @param {DuelMatchDeleteArgs} args - Arguments to delete one DuelMatch.
+     * @example
+     * // Delete one DuelMatch
+     * const DuelMatch = await prisma.duelMatch.delete({
+     *   where: {
+     *     // ... filter to delete one DuelMatch
+     *   }
+     * })
+     * 
+     */
+    delete<T extends DuelMatchDeleteArgs>(args: SelectSubset<T, DuelMatchDeleteArgs<ExtArgs>>): Prisma__DuelMatchClient<$Result.GetResult<Prisma.$DuelMatchPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one DuelMatch.
+     * @param {DuelMatchUpdateArgs} args - Arguments to update one DuelMatch.
+     * @example
+     * // Update one DuelMatch
+     * const duelMatch = await prisma.duelMatch.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends DuelMatchUpdateArgs>(args: SelectSubset<T, DuelMatchUpdateArgs<ExtArgs>>): Prisma__DuelMatchClient<$Result.GetResult<Prisma.$DuelMatchPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more DuelMatches.
+     * @param {DuelMatchDeleteManyArgs} args - Arguments to filter DuelMatches to delete.
+     * @example
+     * // Delete a few DuelMatches
+     * const { count } = await prisma.duelMatch.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends DuelMatchDeleteManyArgs>(args?: SelectSubset<T, DuelMatchDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more DuelMatches.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DuelMatchUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many DuelMatches
+     * const duelMatch = await prisma.duelMatch.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends DuelMatchUpdateManyArgs>(args: SelectSubset<T, DuelMatchUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more DuelMatches and returns the data updated in the database.
+     * @param {DuelMatchUpdateManyAndReturnArgs} args - Arguments to update many DuelMatches.
+     * @example
+     * // Update many DuelMatches
+     * const duelMatch = await prisma.duelMatch.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more DuelMatches and only return the `id`
+     * const duelMatchWithIdOnly = await prisma.duelMatch.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends DuelMatchUpdateManyAndReturnArgs>(args: SelectSubset<T, DuelMatchUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DuelMatchPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one DuelMatch.
+     * @param {DuelMatchUpsertArgs} args - Arguments to update or create a DuelMatch.
+     * @example
+     * // Update or create a DuelMatch
+     * const duelMatch = await prisma.duelMatch.upsert({
+     *   create: {
+     *     // ... data to create a DuelMatch
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the DuelMatch we want to update
+     *   }
+     * })
+     */
+    upsert<T extends DuelMatchUpsertArgs>(args: SelectSubset<T, DuelMatchUpsertArgs<ExtArgs>>): Prisma__DuelMatchClient<$Result.GetResult<Prisma.$DuelMatchPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of DuelMatches.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DuelMatchCountArgs} args - Arguments to filter DuelMatches to count.
+     * @example
+     * // Count the number of DuelMatches
+     * const count = await prisma.duelMatch.count({
+     *   where: {
+     *     // ... the filter for the DuelMatches we want to count
+     *   }
+     * })
+    **/
+    count<T extends DuelMatchCountArgs>(
+      args?: Subset<T, DuelMatchCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], DuelMatchCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a DuelMatch.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DuelMatchAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends DuelMatchAggregateArgs>(args: Subset<T, DuelMatchAggregateArgs>): Prisma.PrismaPromise<GetDuelMatchAggregateType<T>>
+
+    /**
+     * Group by DuelMatch.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DuelMatchGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends DuelMatchGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: DuelMatchGroupByArgs['orderBy'] }
+        : { orderBy?: DuelMatchGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, DuelMatchGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetDuelMatchGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the DuelMatch model
+   */
+  readonly fields: DuelMatchFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for DuelMatch.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__DuelMatchClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    arena<T extends DuelMatch$arenaArgs<ExtArgs> = {}>(args?: Subset<T, DuelMatch$arenaArgs<ExtArgs>>): Prisma__ArenaClient<$Result.GetResult<Prisma.$ArenaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    ticks<T extends DuelMatch$ticksArgs<ExtArgs> = {}>(args?: Subset<T, DuelMatch$ticksArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DuelTickPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the DuelMatch model
+   */
+  interface DuelMatchFieldRefs {
+    readonly id: FieldRef<"DuelMatch", 'String'>
+    readonly arenaId: FieldRef<"DuelMatch", 'String'>
+    readonly agentAId: FieldRef<"DuelMatch", 'String'>
+    readonly agentBId: FieldRef<"DuelMatch", 'String'>
+    readonly entryAId: FieldRef<"DuelMatch", 'String'>
+    readonly entryBId: FieldRef<"DuelMatch", 'String'>
+    readonly status: FieldRef<"DuelMatch", 'String'>
+    readonly bestOf: FieldRef<"DuelMatch", 'Int'>
+    readonly roundWinsA: FieldRef<"DuelMatch", 'Int'>
+    readonly roundWinsB: FieldRef<"DuelMatch", 'Int'>
+    readonly currentRound: FieldRef<"DuelMatch", 'Int'>
+    readonly seed: FieldRef<"DuelMatch", 'Int'>
+    readonly stateJson: FieldRef<"DuelMatch", 'String'>
+    readonly pendingJson: FieldRef<"DuelMatch", 'String'>
+    readonly lastTickAt: FieldRef<"DuelMatch", 'DateTime'>
+    readonly lockVersion: FieldRef<"DuelMatch", 'Int'>
+    readonly winnerAgentId: FieldRef<"DuelMatch", 'String'>
+    readonly createdAt: FieldRef<"DuelMatch", 'DateTime'>
+    readonly finishedAt: FieldRef<"DuelMatch", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * DuelMatch findUnique
+   */
+  export type DuelMatchFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DuelMatch
+     */
+    select?: DuelMatchSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DuelMatch
+     */
+    omit?: DuelMatchOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DuelMatchInclude<ExtArgs> | null
+    /**
+     * Filter, which DuelMatch to fetch.
+     */
+    where: DuelMatchWhereUniqueInput
+  }
+
+  /**
+   * DuelMatch findUniqueOrThrow
+   */
+  export type DuelMatchFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DuelMatch
+     */
+    select?: DuelMatchSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DuelMatch
+     */
+    omit?: DuelMatchOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DuelMatchInclude<ExtArgs> | null
+    /**
+     * Filter, which DuelMatch to fetch.
+     */
+    where: DuelMatchWhereUniqueInput
+  }
+
+  /**
+   * DuelMatch findFirst
+   */
+  export type DuelMatchFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DuelMatch
+     */
+    select?: DuelMatchSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DuelMatch
+     */
+    omit?: DuelMatchOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DuelMatchInclude<ExtArgs> | null
+    /**
+     * Filter, which DuelMatch to fetch.
+     */
+    where?: DuelMatchWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of DuelMatches to fetch.
+     */
+    orderBy?: DuelMatchOrderByWithRelationInput | DuelMatchOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for DuelMatches.
+     */
+    cursor?: DuelMatchWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` DuelMatches from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` DuelMatches.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of DuelMatches.
+     */
+    distinct?: DuelMatchScalarFieldEnum | DuelMatchScalarFieldEnum[]
+  }
+
+  /**
+   * DuelMatch findFirstOrThrow
+   */
+  export type DuelMatchFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DuelMatch
+     */
+    select?: DuelMatchSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DuelMatch
+     */
+    omit?: DuelMatchOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DuelMatchInclude<ExtArgs> | null
+    /**
+     * Filter, which DuelMatch to fetch.
+     */
+    where?: DuelMatchWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of DuelMatches to fetch.
+     */
+    orderBy?: DuelMatchOrderByWithRelationInput | DuelMatchOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for DuelMatches.
+     */
+    cursor?: DuelMatchWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` DuelMatches from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` DuelMatches.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of DuelMatches.
+     */
+    distinct?: DuelMatchScalarFieldEnum | DuelMatchScalarFieldEnum[]
+  }
+
+  /**
+   * DuelMatch findMany
+   */
+  export type DuelMatchFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DuelMatch
+     */
+    select?: DuelMatchSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DuelMatch
+     */
+    omit?: DuelMatchOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DuelMatchInclude<ExtArgs> | null
+    /**
+     * Filter, which DuelMatches to fetch.
+     */
+    where?: DuelMatchWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of DuelMatches to fetch.
+     */
+    orderBy?: DuelMatchOrderByWithRelationInput | DuelMatchOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing DuelMatches.
+     */
+    cursor?: DuelMatchWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` DuelMatches from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` DuelMatches.
+     */
+    skip?: number
+    distinct?: DuelMatchScalarFieldEnum | DuelMatchScalarFieldEnum[]
+  }
+
+  /**
+   * DuelMatch create
+   */
+  export type DuelMatchCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DuelMatch
+     */
+    select?: DuelMatchSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DuelMatch
+     */
+    omit?: DuelMatchOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DuelMatchInclude<ExtArgs> | null
+    /**
+     * The data needed to create a DuelMatch.
+     */
+    data: XOR<DuelMatchCreateInput, DuelMatchUncheckedCreateInput>
+  }
+
+  /**
+   * DuelMatch createMany
+   */
+  export type DuelMatchCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many DuelMatches.
+     */
+    data: DuelMatchCreateManyInput | DuelMatchCreateManyInput[]
+  }
+
+  /**
+   * DuelMatch createManyAndReturn
+   */
+  export type DuelMatchCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DuelMatch
+     */
+    select?: DuelMatchSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the DuelMatch
+     */
+    omit?: DuelMatchOmit<ExtArgs> | null
+    /**
+     * The data used to create many DuelMatches.
+     */
+    data: DuelMatchCreateManyInput | DuelMatchCreateManyInput[]
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DuelMatchIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * DuelMatch update
+   */
+  export type DuelMatchUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DuelMatch
+     */
+    select?: DuelMatchSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DuelMatch
+     */
+    omit?: DuelMatchOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DuelMatchInclude<ExtArgs> | null
+    /**
+     * The data needed to update a DuelMatch.
+     */
+    data: XOR<DuelMatchUpdateInput, DuelMatchUncheckedUpdateInput>
+    /**
+     * Choose, which DuelMatch to update.
+     */
+    where: DuelMatchWhereUniqueInput
+  }
+
+  /**
+   * DuelMatch updateMany
+   */
+  export type DuelMatchUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update DuelMatches.
+     */
+    data: XOR<DuelMatchUpdateManyMutationInput, DuelMatchUncheckedUpdateManyInput>
+    /**
+     * Filter which DuelMatches to update
+     */
+    where?: DuelMatchWhereInput
+    /**
+     * Limit how many DuelMatches to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * DuelMatch updateManyAndReturn
+   */
+  export type DuelMatchUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DuelMatch
+     */
+    select?: DuelMatchSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the DuelMatch
+     */
+    omit?: DuelMatchOmit<ExtArgs> | null
+    /**
+     * The data used to update DuelMatches.
+     */
+    data: XOR<DuelMatchUpdateManyMutationInput, DuelMatchUncheckedUpdateManyInput>
+    /**
+     * Filter which DuelMatches to update
+     */
+    where?: DuelMatchWhereInput
+    /**
+     * Limit how many DuelMatches to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DuelMatchIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * DuelMatch upsert
+   */
+  export type DuelMatchUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DuelMatch
+     */
+    select?: DuelMatchSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DuelMatch
+     */
+    omit?: DuelMatchOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DuelMatchInclude<ExtArgs> | null
+    /**
+     * The filter to search for the DuelMatch to update in case it exists.
+     */
+    where: DuelMatchWhereUniqueInput
+    /**
+     * In case the DuelMatch found by the `where` argument doesn't exist, create a new DuelMatch with this data.
+     */
+    create: XOR<DuelMatchCreateInput, DuelMatchUncheckedCreateInput>
+    /**
+     * In case the DuelMatch was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<DuelMatchUpdateInput, DuelMatchUncheckedUpdateInput>
+  }
+
+  /**
+   * DuelMatch delete
+   */
+  export type DuelMatchDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DuelMatch
+     */
+    select?: DuelMatchSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DuelMatch
+     */
+    omit?: DuelMatchOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DuelMatchInclude<ExtArgs> | null
+    /**
+     * Filter which DuelMatch to delete.
+     */
+    where: DuelMatchWhereUniqueInput
+  }
+
+  /**
+   * DuelMatch deleteMany
+   */
+  export type DuelMatchDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which DuelMatches to delete
+     */
+    where?: DuelMatchWhereInput
+    /**
+     * Limit how many DuelMatches to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * DuelMatch.arena
+   */
+  export type DuelMatch$arenaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Arena
+     */
+    select?: ArenaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Arena
+     */
+    omit?: ArenaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ArenaInclude<ExtArgs> | null
+    where?: ArenaWhereInput
+  }
+
+  /**
+   * DuelMatch.ticks
+   */
+  export type DuelMatch$ticksArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DuelTick
+     */
+    select?: DuelTickSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DuelTick
+     */
+    omit?: DuelTickOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DuelTickInclude<ExtArgs> | null
+    where?: DuelTickWhereInput
+    orderBy?: DuelTickOrderByWithRelationInput | DuelTickOrderByWithRelationInput[]
+    cursor?: DuelTickWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: DuelTickScalarFieldEnum | DuelTickScalarFieldEnum[]
+  }
+
+  /**
+   * DuelMatch without action
+   */
+  export type DuelMatchDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DuelMatch
+     */
+    select?: DuelMatchSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DuelMatch
+     */
+    omit?: DuelMatchOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DuelMatchInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model DuelTick
+   */
+
+  export type AggregateDuelTick = {
+    _count: DuelTickCountAggregateOutputType | null
+    _avg: DuelTickAvgAggregateOutputType | null
+    _sum: DuelTickSumAggregateOutputType | null
+    _min: DuelTickMinAggregateOutputType | null
+    _max: DuelTickMaxAggregateOutputType | null
+  }
+
+  export type DuelTickAvgAggregateOutputType = {
+    round: number | null
+    tick: number | null
+  }
+
+  export type DuelTickSumAggregateOutputType = {
+    round: number | null
+    tick: number | null
+  }
+
+  export type DuelTickMinAggregateOutputType = {
+    id: string | null
+    matchId: string | null
+    round: number | null
+    tick: number | null
+    actionA: string | null
+    actionB: string | null
+    createdAt: Date | null
+  }
+
+  export type DuelTickMaxAggregateOutputType = {
+    id: string | null
+    matchId: string | null
+    round: number | null
+    tick: number | null
+    actionA: string | null
+    actionB: string | null
+    createdAt: Date | null
+  }
+
+  export type DuelTickCountAggregateOutputType = {
+    id: number
+    matchId: number
+    round: number
+    tick: number
+    actionA: number
+    actionB: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type DuelTickAvgAggregateInputType = {
+    round?: true
+    tick?: true
+  }
+
+  export type DuelTickSumAggregateInputType = {
+    round?: true
+    tick?: true
+  }
+
+  export type DuelTickMinAggregateInputType = {
+    id?: true
+    matchId?: true
+    round?: true
+    tick?: true
+    actionA?: true
+    actionB?: true
+    createdAt?: true
+  }
+
+  export type DuelTickMaxAggregateInputType = {
+    id?: true
+    matchId?: true
+    round?: true
+    tick?: true
+    actionA?: true
+    actionB?: true
+    createdAt?: true
+  }
+
+  export type DuelTickCountAggregateInputType = {
+    id?: true
+    matchId?: true
+    round?: true
+    tick?: true
+    actionA?: true
+    actionB?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type DuelTickAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which DuelTick to aggregate.
+     */
+    where?: DuelTickWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of DuelTicks to fetch.
+     */
+    orderBy?: DuelTickOrderByWithRelationInput | DuelTickOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: DuelTickWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` DuelTicks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` DuelTicks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned DuelTicks
+    **/
+    _count?: true | DuelTickCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: DuelTickAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: DuelTickSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: DuelTickMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: DuelTickMaxAggregateInputType
+  }
+
+  export type GetDuelTickAggregateType<T extends DuelTickAggregateArgs> = {
+        [P in keyof T & keyof AggregateDuelTick]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateDuelTick[P]>
+      : GetScalarType<T[P], AggregateDuelTick[P]>
+  }
+
+
+
+
+  export type DuelTickGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: DuelTickWhereInput
+    orderBy?: DuelTickOrderByWithAggregationInput | DuelTickOrderByWithAggregationInput[]
+    by: DuelTickScalarFieldEnum[] | DuelTickScalarFieldEnum
+    having?: DuelTickScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: DuelTickCountAggregateInputType | true
+    _avg?: DuelTickAvgAggregateInputType
+    _sum?: DuelTickSumAggregateInputType
+    _min?: DuelTickMinAggregateInputType
+    _max?: DuelTickMaxAggregateInputType
+  }
+
+  export type DuelTickGroupByOutputType = {
+    id: string
+    matchId: string
+    round: number
+    tick: number
+    actionA: string
+    actionB: string
+    createdAt: Date
+    _count: DuelTickCountAggregateOutputType | null
+    _avg: DuelTickAvgAggregateOutputType | null
+    _sum: DuelTickSumAggregateOutputType | null
+    _min: DuelTickMinAggregateOutputType | null
+    _max: DuelTickMaxAggregateOutputType | null
+  }
+
+  type GetDuelTickGroupByPayload<T extends DuelTickGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<DuelTickGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof DuelTickGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], DuelTickGroupByOutputType[P]>
+            : GetScalarType<T[P], DuelTickGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type DuelTickSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    matchId?: boolean
+    round?: boolean
+    tick?: boolean
+    actionA?: boolean
+    actionB?: boolean
+    createdAt?: boolean
+    match?: boolean | DuelMatchDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["duelTick"]>
+
+  export type DuelTickSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    matchId?: boolean
+    round?: boolean
+    tick?: boolean
+    actionA?: boolean
+    actionB?: boolean
+    createdAt?: boolean
+    match?: boolean | DuelMatchDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["duelTick"]>
+
+  export type DuelTickSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    matchId?: boolean
+    round?: boolean
+    tick?: boolean
+    actionA?: boolean
+    actionB?: boolean
+    createdAt?: boolean
+    match?: boolean | DuelMatchDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["duelTick"]>
+
+  export type DuelTickSelectScalar = {
+    id?: boolean
+    matchId?: boolean
+    round?: boolean
+    tick?: boolean
+    actionA?: boolean
+    actionB?: boolean
+    createdAt?: boolean
+  }
+
+  export type DuelTickOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "matchId" | "round" | "tick" | "actionA" | "actionB" | "createdAt", ExtArgs["result"]["duelTick"]>
+  export type DuelTickInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    match?: boolean | DuelMatchDefaultArgs<ExtArgs>
+  }
+  export type DuelTickIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    match?: boolean | DuelMatchDefaultArgs<ExtArgs>
+  }
+  export type DuelTickIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    match?: boolean | DuelMatchDefaultArgs<ExtArgs>
+  }
+
+  export type $DuelTickPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "DuelTick"
+    objects: {
+      match: Prisma.$DuelMatchPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      matchId: string
+      round: number
+      tick: number
+      actionA: string
+      actionB: string
+      createdAt: Date
+    }, ExtArgs["result"]["duelTick"]>
+    composites: {}
+  }
+
+  type DuelTickGetPayload<S extends boolean | null | undefined | DuelTickDefaultArgs> = $Result.GetResult<Prisma.$DuelTickPayload, S>
+
+  type DuelTickCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<DuelTickFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: DuelTickCountAggregateInputType | true
+    }
+
+  export interface DuelTickDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['DuelTick'], meta: { name: 'DuelTick' } }
+    /**
+     * Find zero or one DuelTick that matches the filter.
+     * @param {DuelTickFindUniqueArgs} args - Arguments to find a DuelTick
+     * @example
+     * // Get one DuelTick
+     * const duelTick = await prisma.duelTick.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends DuelTickFindUniqueArgs>(args: SelectSubset<T, DuelTickFindUniqueArgs<ExtArgs>>): Prisma__DuelTickClient<$Result.GetResult<Prisma.$DuelTickPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one DuelTick that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {DuelTickFindUniqueOrThrowArgs} args - Arguments to find a DuelTick
+     * @example
+     * // Get one DuelTick
+     * const duelTick = await prisma.duelTick.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends DuelTickFindUniqueOrThrowArgs>(args: SelectSubset<T, DuelTickFindUniqueOrThrowArgs<ExtArgs>>): Prisma__DuelTickClient<$Result.GetResult<Prisma.$DuelTickPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first DuelTick that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DuelTickFindFirstArgs} args - Arguments to find a DuelTick
+     * @example
+     * // Get one DuelTick
+     * const duelTick = await prisma.duelTick.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends DuelTickFindFirstArgs>(args?: SelectSubset<T, DuelTickFindFirstArgs<ExtArgs>>): Prisma__DuelTickClient<$Result.GetResult<Prisma.$DuelTickPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first DuelTick that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DuelTickFindFirstOrThrowArgs} args - Arguments to find a DuelTick
+     * @example
+     * // Get one DuelTick
+     * const duelTick = await prisma.duelTick.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends DuelTickFindFirstOrThrowArgs>(args?: SelectSubset<T, DuelTickFindFirstOrThrowArgs<ExtArgs>>): Prisma__DuelTickClient<$Result.GetResult<Prisma.$DuelTickPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more DuelTicks that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DuelTickFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all DuelTicks
+     * const duelTicks = await prisma.duelTick.findMany()
+     * 
+     * // Get first 10 DuelTicks
+     * const duelTicks = await prisma.duelTick.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const duelTickWithIdOnly = await prisma.duelTick.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends DuelTickFindManyArgs>(args?: SelectSubset<T, DuelTickFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DuelTickPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a DuelTick.
+     * @param {DuelTickCreateArgs} args - Arguments to create a DuelTick.
+     * @example
+     * // Create one DuelTick
+     * const DuelTick = await prisma.duelTick.create({
+     *   data: {
+     *     // ... data to create a DuelTick
+     *   }
+     * })
+     * 
+     */
+    create<T extends DuelTickCreateArgs>(args: SelectSubset<T, DuelTickCreateArgs<ExtArgs>>): Prisma__DuelTickClient<$Result.GetResult<Prisma.$DuelTickPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many DuelTicks.
+     * @param {DuelTickCreateManyArgs} args - Arguments to create many DuelTicks.
+     * @example
+     * // Create many DuelTicks
+     * const duelTick = await prisma.duelTick.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends DuelTickCreateManyArgs>(args?: SelectSubset<T, DuelTickCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many DuelTicks and returns the data saved in the database.
+     * @param {DuelTickCreateManyAndReturnArgs} args - Arguments to create many DuelTicks.
+     * @example
+     * // Create many DuelTicks
+     * const duelTick = await prisma.duelTick.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many DuelTicks and only return the `id`
+     * const duelTickWithIdOnly = await prisma.duelTick.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends DuelTickCreateManyAndReturnArgs>(args?: SelectSubset<T, DuelTickCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DuelTickPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a DuelTick.
+     * @param {DuelTickDeleteArgs} args - Arguments to delete one DuelTick.
+     * @example
+     * // Delete one DuelTick
+     * const DuelTick = await prisma.duelTick.delete({
+     *   where: {
+     *     // ... filter to delete one DuelTick
+     *   }
+     * })
+     * 
+     */
+    delete<T extends DuelTickDeleteArgs>(args: SelectSubset<T, DuelTickDeleteArgs<ExtArgs>>): Prisma__DuelTickClient<$Result.GetResult<Prisma.$DuelTickPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one DuelTick.
+     * @param {DuelTickUpdateArgs} args - Arguments to update one DuelTick.
+     * @example
+     * // Update one DuelTick
+     * const duelTick = await prisma.duelTick.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends DuelTickUpdateArgs>(args: SelectSubset<T, DuelTickUpdateArgs<ExtArgs>>): Prisma__DuelTickClient<$Result.GetResult<Prisma.$DuelTickPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more DuelTicks.
+     * @param {DuelTickDeleteManyArgs} args - Arguments to filter DuelTicks to delete.
+     * @example
+     * // Delete a few DuelTicks
+     * const { count } = await prisma.duelTick.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends DuelTickDeleteManyArgs>(args?: SelectSubset<T, DuelTickDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more DuelTicks.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DuelTickUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many DuelTicks
+     * const duelTick = await prisma.duelTick.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends DuelTickUpdateManyArgs>(args: SelectSubset<T, DuelTickUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more DuelTicks and returns the data updated in the database.
+     * @param {DuelTickUpdateManyAndReturnArgs} args - Arguments to update many DuelTicks.
+     * @example
+     * // Update many DuelTicks
+     * const duelTick = await prisma.duelTick.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more DuelTicks and only return the `id`
+     * const duelTickWithIdOnly = await prisma.duelTick.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends DuelTickUpdateManyAndReturnArgs>(args: SelectSubset<T, DuelTickUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DuelTickPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one DuelTick.
+     * @param {DuelTickUpsertArgs} args - Arguments to update or create a DuelTick.
+     * @example
+     * // Update or create a DuelTick
+     * const duelTick = await prisma.duelTick.upsert({
+     *   create: {
+     *     // ... data to create a DuelTick
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the DuelTick we want to update
+     *   }
+     * })
+     */
+    upsert<T extends DuelTickUpsertArgs>(args: SelectSubset<T, DuelTickUpsertArgs<ExtArgs>>): Prisma__DuelTickClient<$Result.GetResult<Prisma.$DuelTickPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of DuelTicks.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DuelTickCountArgs} args - Arguments to filter DuelTicks to count.
+     * @example
+     * // Count the number of DuelTicks
+     * const count = await prisma.duelTick.count({
+     *   where: {
+     *     // ... the filter for the DuelTicks we want to count
+     *   }
+     * })
+    **/
+    count<T extends DuelTickCountArgs>(
+      args?: Subset<T, DuelTickCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], DuelTickCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a DuelTick.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DuelTickAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends DuelTickAggregateArgs>(args: Subset<T, DuelTickAggregateArgs>): Prisma.PrismaPromise<GetDuelTickAggregateType<T>>
+
+    /**
+     * Group by DuelTick.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DuelTickGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends DuelTickGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: DuelTickGroupByArgs['orderBy'] }
+        : { orderBy?: DuelTickGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, DuelTickGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetDuelTickGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the DuelTick model
+   */
+  readonly fields: DuelTickFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for DuelTick.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__DuelTickClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    match<T extends DuelMatchDefaultArgs<ExtArgs> = {}>(args?: Subset<T, DuelMatchDefaultArgs<ExtArgs>>): Prisma__DuelMatchClient<$Result.GetResult<Prisma.$DuelMatchPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the DuelTick model
+   */
+  interface DuelTickFieldRefs {
+    readonly id: FieldRef<"DuelTick", 'String'>
+    readonly matchId: FieldRef<"DuelTick", 'String'>
+    readonly round: FieldRef<"DuelTick", 'Int'>
+    readonly tick: FieldRef<"DuelTick", 'Int'>
+    readonly actionA: FieldRef<"DuelTick", 'String'>
+    readonly actionB: FieldRef<"DuelTick", 'String'>
+    readonly createdAt: FieldRef<"DuelTick", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * DuelTick findUnique
+   */
+  export type DuelTickFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DuelTick
+     */
+    select?: DuelTickSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DuelTick
+     */
+    omit?: DuelTickOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DuelTickInclude<ExtArgs> | null
+    /**
+     * Filter, which DuelTick to fetch.
+     */
+    where: DuelTickWhereUniqueInput
+  }
+
+  /**
+   * DuelTick findUniqueOrThrow
+   */
+  export type DuelTickFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DuelTick
+     */
+    select?: DuelTickSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DuelTick
+     */
+    omit?: DuelTickOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DuelTickInclude<ExtArgs> | null
+    /**
+     * Filter, which DuelTick to fetch.
+     */
+    where: DuelTickWhereUniqueInput
+  }
+
+  /**
+   * DuelTick findFirst
+   */
+  export type DuelTickFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DuelTick
+     */
+    select?: DuelTickSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DuelTick
+     */
+    omit?: DuelTickOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DuelTickInclude<ExtArgs> | null
+    /**
+     * Filter, which DuelTick to fetch.
+     */
+    where?: DuelTickWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of DuelTicks to fetch.
+     */
+    orderBy?: DuelTickOrderByWithRelationInput | DuelTickOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for DuelTicks.
+     */
+    cursor?: DuelTickWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` DuelTicks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` DuelTicks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of DuelTicks.
+     */
+    distinct?: DuelTickScalarFieldEnum | DuelTickScalarFieldEnum[]
+  }
+
+  /**
+   * DuelTick findFirstOrThrow
+   */
+  export type DuelTickFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DuelTick
+     */
+    select?: DuelTickSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DuelTick
+     */
+    omit?: DuelTickOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DuelTickInclude<ExtArgs> | null
+    /**
+     * Filter, which DuelTick to fetch.
+     */
+    where?: DuelTickWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of DuelTicks to fetch.
+     */
+    orderBy?: DuelTickOrderByWithRelationInput | DuelTickOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for DuelTicks.
+     */
+    cursor?: DuelTickWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` DuelTicks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` DuelTicks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of DuelTicks.
+     */
+    distinct?: DuelTickScalarFieldEnum | DuelTickScalarFieldEnum[]
+  }
+
+  /**
+   * DuelTick findMany
+   */
+  export type DuelTickFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DuelTick
+     */
+    select?: DuelTickSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DuelTick
+     */
+    omit?: DuelTickOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DuelTickInclude<ExtArgs> | null
+    /**
+     * Filter, which DuelTicks to fetch.
+     */
+    where?: DuelTickWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of DuelTicks to fetch.
+     */
+    orderBy?: DuelTickOrderByWithRelationInput | DuelTickOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing DuelTicks.
+     */
+    cursor?: DuelTickWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` DuelTicks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` DuelTicks.
+     */
+    skip?: number
+    distinct?: DuelTickScalarFieldEnum | DuelTickScalarFieldEnum[]
+  }
+
+  /**
+   * DuelTick create
+   */
+  export type DuelTickCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DuelTick
+     */
+    select?: DuelTickSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DuelTick
+     */
+    omit?: DuelTickOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DuelTickInclude<ExtArgs> | null
+    /**
+     * The data needed to create a DuelTick.
+     */
+    data: XOR<DuelTickCreateInput, DuelTickUncheckedCreateInput>
+  }
+
+  /**
+   * DuelTick createMany
+   */
+  export type DuelTickCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many DuelTicks.
+     */
+    data: DuelTickCreateManyInput | DuelTickCreateManyInput[]
+  }
+
+  /**
+   * DuelTick createManyAndReturn
+   */
+  export type DuelTickCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DuelTick
+     */
+    select?: DuelTickSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the DuelTick
+     */
+    omit?: DuelTickOmit<ExtArgs> | null
+    /**
+     * The data used to create many DuelTicks.
+     */
+    data: DuelTickCreateManyInput | DuelTickCreateManyInput[]
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DuelTickIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * DuelTick update
+   */
+  export type DuelTickUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DuelTick
+     */
+    select?: DuelTickSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DuelTick
+     */
+    omit?: DuelTickOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DuelTickInclude<ExtArgs> | null
+    /**
+     * The data needed to update a DuelTick.
+     */
+    data: XOR<DuelTickUpdateInput, DuelTickUncheckedUpdateInput>
+    /**
+     * Choose, which DuelTick to update.
+     */
+    where: DuelTickWhereUniqueInput
+  }
+
+  /**
+   * DuelTick updateMany
+   */
+  export type DuelTickUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update DuelTicks.
+     */
+    data: XOR<DuelTickUpdateManyMutationInput, DuelTickUncheckedUpdateManyInput>
+    /**
+     * Filter which DuelTicks to update
+     */
+    where?: DuelTickWhereInput
+    /**
+     * Limit how many DuelTicks to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * DuelTick updateManyAndReturn
+   */
+  export type DuelTickUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DuelTick
+     */
+    select?: DuelTickSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the DuelTick
+     */
+    omit?: DuelTickOmit<ExtArgs> | null
+    /**
+     * The data used to update DuelTicks.
+     */
+    data: XOR<DuelTickUpdateManyMutationInput, DuelTickUncheckedUpdateManyInput>
+    /**
+     * Filter which DuelTicks to update
+     */
+    where?: DuelTickWhereInput
+    /**
+     * Limit how many DuelTicks to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DuelTickIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * DuelTick upsert
+   */
+  export type DuelTickUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DuelTick
+     */
+    select?: DuelTickSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DuelTick
+     */
+    omit?: DuelTickOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DuelTickInclude<ExtArgs> | null
+    /**
+     * The filter to search for the DuelTick to update in case it exists.
+     */
+    where: DuelTickWhereUniqueInput
+    /**
+     * In case the DuelTick found by the `where` argument doesn't exist, create a new DuelTick with this data.
+     */
+    create: XOR<DuelTickCreateInput, DuelTickUncheckedCreateInput>
+    /**
+     * In case the DuelTick was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<DuelTickUpdateInput, DuelTickUncheckedUpdateInput>
+  }
+
+  /**
+   * DuelTick delete
+   */
+  export type DuelTickDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DuelTick
+     */
+    select?: DuelTickSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DuelTick
+     */
+    omit?: DuelTickOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DuelTickInclude<ExtArgs> | null
+    /**
+     * Filter which DuelTick to delete.
+     */
+    where: DuelTickWhereUniqueInput
+  }
+
+  /**
+   * DuelTick deleteMany
+   */
+  export type DuelTickDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which DuelTicks to delete
+     */
+    where?: DuelTickWhereInput
+    /**
+     * Limit how many DuelTicks to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * DuelTick without action
+   */
+  export type DuelTickDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DuelTick
+     */
+    select?: DuelTickSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DuelTick
+     */
+    omit?: DuelTickOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DuelTickInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Model PasswordResetCode
    */
 
@@ -24390,6 +27101,44 @@ export namespace Prisma {
   export type EvalJobScalarFieldEnum = (typeof EvalJobScalarFieldEnum)[keyof typeof EvalJobScalarFieldEnum]
 
 
+  export const DuelMatchScalarFieldEnum: {
+    id: 'id',
+    arenaId: 'arenaId',
+    agentAId: 'agentAId',
+    agentBId: 'agentBId',
+    entryAId: 'entryAId',
+    entryBId: 'entryBId',
+    status: 'status',
+    bestOf: 'bestOf',
+    roundWinsA: 'roundWinsA',
+    roundWinsB: 'roundWinsB',
+    currentRound: 'currentRound',
+    seed: 'seed',
+    stateJson: 'stateJson',
+    pendingJson: 'pendingJson',
+    lastTickAt: 'lastTickAt',
+    lockVersion: 'lockVersion',
+    winnerAgentId: 'winnerAgentId',
+    createdAt: 'createdAt',
+    finishedAt: 'finishedAt'
+  };
+
+  export type DuelMatchScalarFieldEnum = (typeof DuelMatchScalarFieldEnum)[keyof typeof DuelMatchScalarFieldEnum]
+
+
+  export const DuelTickScalarFieldEnum: {
+    id: 'id',
+    matchId: 'matchId',
+    round: 'round',
+    tick: 'tick',
+    actionA: 'actionA',
+    actionB: 'actionB',
+    createdAt: 'createdAt'
+  };
+
+  export type DuelTickScalarFieldEnum = (typeof DuelTickScalarFieldEnum)[keyof typeof DuelTickScalarFieldEnum]
+
+
   export const PasswordResetCodeScalarFieldEnum: {
     id: 'id',
     userId: 'userId',
@@ -24984,6 +27733,7 @@ export namespace Prisma {
     proposals?: StandardProposalListRelationFilter
     collaborators?: ArenaCollaboratorListRelationFilter
     entries?: EntryListRelationFilter
+    duelMatches?: DuelMatchListRelationFilter
   }
 
   export type ArenaOrderByWithRelationInput = {
@@ -25004,6 +27754,7 @@ export namespace Prisma {
     proposals?: StandardProposalOrderByRelationAggregateInput
     collaborators?: ArenaCollaboratorOrderByRelationAggregateInput
     entries?: EntryOrderByRelationAggregateInput
+    duelMatches?: DuelMatchOrderByRelationAggregateInput
   }
 
   export type ArenaWhereUniqueInput = Prisma.AtLeast<{
@@ -25027,6 +27778,7 @@ export namespace Prisma {
     proposals?: StandardProposalListRelationFilter
     collaborators?: ArenaCollaboratorListRelationFilter
     entries?: EntryListRelationFilter
+    duelMatches?: DuelMatchListRelationFilter
   }, "id">
 
   export type ArenaOrderByWithAggregationInput = {
@@ -25833,6 +28585,204 @@ export namespace Prisma {
     updatedAt?: DateTimeWithAggregatesFilter<"EvalJob"> | Date | string
   }
 
+  export type DuelMatchWhereInput = {
+    AND?: DuelMatchWhereInput | DuelMatchWhereInput[]
+    OR?: DuelMatchWhereInput[]
+    NOT?: DuelMatchWhereInput | DuelMatchWhereInput[]
+    id?: StringFilter<"DuelMatch"> | string
+    arenaId?: StringNullableFilter<"DuelMatch"> | string | null
+    agentAId?: StringFilter<"DuelMatch"> | string
+    agentBId?: StringFilter<"DuelMatch"> | string
+    entryAId?: StringNullableFilter<"DuelMatch"> | string | null
+    entryBId?: StringNullableFilter<"DuelMatch"> | string | null
+    status?: StringFilter<"DuelMatch"> | string
+    bestOf?: IntFilter<"DuelMatch"> | number
+    roundWinsA?: IntFilter<"DuelMatch"> | number
+    roundWinsB?: IntFilter<"DuelMatch"> | number
+    currentRound?: IntFilter<"DuelMatch"> | number
+    seed?: IntFilter<"DuelMatch"> | number
+    stateJson?: StringFilter<"DuelMatch"> | string
+    pendingJson?: StringFilter<"DuelMatch"> | string
+    lastTickAt?: DateTimeFilter<"DuelMatch"> | Date | string
+    lockVersion?: IntFilter<"DuelMatch"> | number
+    winnerAgentId?: StringNullableFilter<"DuelMatch"> | string | null
+    createdAt?: DateTimeFilter<"DuelMatch"> | Date | string
+    finishedAt?: DateTimeNullableFilter<"DuelMatch"> | Date | string | null
+    arena?: XOR<ArenaNullableScalarRelationFilter, ArenaWhereInput> | null
+    ticks?: DuelTickListRelationFilter
+  }
+
+  export type DuelMatchOrderByWithRelationInput = {
+    id?: SortOrder
+    arenaId?: SortOrderInput | SortOrder
+    agentAId?: SortOrder
+    agentBId?: SortOrder
+    entryAId?: SortOrderInput | SortOrder
+    entryBId?: SortOrderInput | SortOrder
+    status?: SortOrder
+    bestOf?: SortOrder
+    roundWinsA?: SortOrder
+    roundWinsB?: SortOrder
+    currentRound?: SortOrder
+    seed?: SortOrder
+    stateJson?: SortOrder
+    pendingJson?: SortOrder
+    lastTickAt?: SortOrder
+    lockVersion?: SortOrder
+    winnerAgentId?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    finishedAt?: SortOrderInput | SortOrder
+    arena?: ArenaOrderByWithRelationInput
+    ticks?: DuelTickOrderByRelationAggregateInput
+  }
+
+  export type DuelMatchWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: DuelMatchWhereInput | DuelMatchWhereInput[]
+    OR?: DuelMatchWhereInput[]
+    NOT?: DuelMatchWhereInput | DuelMatchWhereInput[]
+    arenaId?: StringNullableFilter<"DuelMatch"> | string | null
+    agentAId?: StringFilter<"DuelMatch"> | string
+    agentBId?: StringFilter<"DuelMatch"> | string
+    entryAId?: StringNullableFilter<"DuelMatch"> | string | null
+    entryBId?: StringNullableFilter<"DuelMatch"> | string | null
+    status?: StringFilter<"DuelMatch"> | string
+    bestOf?: IntFilter<"DuelMatch"> | number
+    roundWinsA?: IntFilter<"DuelMatch"> | number
+    roundWinsB?: IntFilter<"DuelMatch"> | number
+    currentRound?: IntFilter<"DuelMatch"> | number
+    seed?: IntFilter<"DuelMatch"> | number
+    stateJson?: StringFilter<"DuelMatch"> | string
+    pendingJson?: StringFilter<"DuelMatch"> | string
+    lastTickAt?: DateTimeFilter<"DuelMatch"> | Date | string
+    lockVersion?: IntFilter<"DuelMatch"> | number
+    winnerAgentId?: StringNullableFilter<"DuelMatch"> | string | null
+    createdAt?: DateTimeFilter<"DuelMatch"> | Date | string
+    finishedAt?: DateTimeNullableFilter<"DuelMatch"> | Date | string | null
+    arena?: XOR<ArenaNullableScalarRelationFilter, ArenaWhereInput> | null
+    ticks?: DuelTickListRelationFilter
+  }, "id">
+
+  export type DuelMatchOrderByWithAggregationInput = {
+    id?: SortOrder
+    arenaId?: SortOrderInput | SortOrder
+    agentAId?: SortOrder
+    agentBId?: SortOrder
+    entryAId?: SortOrderInput | SortOrder
+    entryBId?: SortOrderInput | SortOrder
+    status?: SortOrder
+    bestOf?: SortOrder
+    roundWinsA?: SortOrder
+    roundWinsB?: SortOrder
+    currentRound?: SortOrder
+    seed?: SortOrder
+    stateJson?: SortOrder
+    pendingJson?: SortOrder
+    lastTickAt?: SortOrder
+    lockVersion?: SortOrder
+    winnerAgentId?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    finishedAt?: SortOrderInput | SortOrder
+    _count?: DuelMatchCountOrderByAggregateInput
+    _avg?: DuelMatchAvgOrderByAggregateInput
+    _max?: DuelMatchMaxOrderByAggregateInput
+    _min?: DuelMatchMinOrderByAggregateInput
+    _sum?: DuelMatchSumOrderByAggregateInput
+  }
+
+  export type DuelMatchScalarWhereWithAggregatesInput = {
+    AND?: DuelMatchScalarWhereWithAggregatesInput | DuelMatchScalarWhereWithAggregatesInput[]
+    OR?: DuelMatchScalarWhereWithAggregatesInput[]
+    NOT?: DuelMatchScalarWhereWithAggregatesInput | DuelMatchScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"DuelMatch"> | string
+    arenaId?: StringNullableWithAggregatesFilter<"DuelMatch"> | string | null
+    agentAId?: StringWithAggregatesFilter<"DuelMatch"> | string
+    agentBId?: StringWithAggregatesFilter<"DuelMatch"> | string
+    entryAId?: StringNullableWithAggregatesFilter<"DuelMatch"> | string | null
+    entryBId?: StringNullableWithAggregatesFilter<"DuelMatch"> | string | null
+    status?: StringWithAggregatesFilter<"DuelMatch"> | string
+    bestOf?: IntWithAggregatesFilter<"DuelMatch"> | number
+    roundWinsA?: IntWithAggregatesFilter<"DuelMatch"> | number
+    roundWinsB?: IntWithAggregatesFilter<"DuelMatch"> | number
+    currentRound?: IntWithAggregatesFilter<"DuelMatch"> | number
+    seed?: IntWithAggregatesFilter<"DuelMatch"> | number
+    stateJson?: StringWithAggregatesFilter<"DuelMatch"> | string
+    pendingJson?: StringWithAggregatesFilter<"DuelMatch"> | string
+    lastTickAt?: DateTimeWithAggregatesFilter<"DuelMatch"> | Date | string
+    lockVersion?: IntWithAggregatesFilter<"DuelMatch"> | number
+    winnerAgentId?: StringNullableWithAggregatesFilter<"DuelMatch"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"DuelMatch"> | Date | string
+    finishedAt?: DateTimeNullableWithAggregatesFilter<"DuelMatch"> | Date | string | null
+  }
+
+  export type DuelTickWhereInput = {
+    AND?: DuelTickWhereInput | DuelTickWhereInput[]
+    OR?: DuelTickWhereInput[]
+    NOT?: DuelTickWhereInput | DuelTickWhereInput[]
+    id?: StringFilter<"DuelTick"> | string
+    matchId?: StringFilter<"DuelTick"> | string
+    round?: IntFilter<"DuelTick"> | number
+    tick?: IntFilter<"DuelTick"> | number
+    actionA?: StringFilter<"DuelTick"> | string
+    actionB?: StringFilter<"DuelTick"> | string
+    createdAt?: DateTimeFilter<"DuelTick"> | Date | string
+    match?: XOR<DuelMatchScalarRelationFilter, DuelMatchWhereInput>
+  }
+
+  export type DuelTickOrderByWithRelationInput = {
+    id?: SortOrder
+    matchId?: SortOrder
+    round?: SortOrder
+    tick?: SortOrder
+    actionA?: SortOrder
+    actionB?: SortOrder
+    createdAt?: SortOrder
+    match?: DuelMatchOrderByWithRelationInput
+  }
+
+  export type DuelTickWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    matchId_round_tick?: DuelTickMatchIdRoundTickCompoundUniqueInput
+    AND?: DuelTickWhereInput | DuelTickWhereInput[]
+    OR?: DuelTickWhereInput[]
+    NOT?: DuelTickWhereInput | DuelTickWhereInput[]
+    matchId?: StringFilter<"DuelTick"> | string
+    round?: IntFilter<"DuelTick"> | number
+    tick?: IntFilter<"DuelTick"> | number
+    actionA?: StringFilter<"DuelTick"> | string
+    actionB?: StringFilter<"DuelTick"> | string
+    createdAt?: DateTimeFilter<"DuelTick"> | Date | string
+    match?: XOR<DuelMatchScalarRelationFilter, DuelMatchWhereInput>
+  }, "id" | "matchId_round_tick">
+
+  export type DuelTickOrderByWithAggregationInput = {
+    id?: SortOrder
+    matchId?: SortOrder
+    round?: SortOrder
+    tick?: SortOrder
+    actionA?: SortOrder
+    actionB?: SortOrder
+    createdAt?: SortOrder
+    _count?: DuelTickCountOrderByAggregateInput
+    _avg?: DuelTickAvgOrderByAggregateInput
+    _max?: DuelTickMaxOrderByAggregateInput
+    _min?: DuelTickMinOrderByAggregateInput
+    _sum?: DuelTickSumOrderByAggregateInput
+  }
+
+  export type DuelTickScalarWhereWithAggregatesInput = {
+    AND?: DuelTickScalarWhereWithAggregatesInput | DuelTickScalarWhereWithAggregatesInput[]
+    OR?: DuelTickScalarWhereWithAggregatesInput[]
+    NOT?: DuelTickScalarWhereWithAggregatesInput | DuelTickScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"DuelTick"> | string
+    matchId?: StringWithAggregatesFilter<"DuelTick"> | string
+    round?: IntWithAggregatesFilter<"DuelTick"> | number
+    tick?: IntWithAggregatesFilter<"DuelTick"> | number
+    actionA?: StringWithAggregatesFilter<"DuelTick"> | string
+    actionB?: StringWithAggregatesFilter<"DuelTick"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"DuelTick"> | Date | string
+  }
+
   export type PasswordResetCodeWhereInput = {
     AND?: PasswordResetCodeWhereInput | PasswordResetCodeWhereInput[]
     OR?: PasswordResetCodeWhereInput[]
@@ -26476,6 +29426,7 @@ export namespace Prisma {
     proposals?: StandardProposalCreateNestedManyWithoutArenaInput
     collaborators?: ArenaCollaboratorCreateNestedManyWithoutArenaInput
     entries?: EntryCreateNestedManyWithoutArenaInput
+    duelMatches?: DuelMatchCreateNestedManyWithoutArenaInput
   }
 
   export type ArenaUncheckedCreateInput = {
@@ -26495,6 +29446,7 @@ export namespace Prisma {
     proposals?: StandardProposalUncheckedCreateNestedManyWithoutArenaInput
     collaborators?: ArenaCollaboratorUncheckedCreateNestedManyWithoutArenaInput
     entries?: EntryUncheckedCreateNestedManyWithoutArenaInput
+    duelMatches?: DuelMatchUncheckedCreateNestedManyWithoutArenaInput
   }
 
   export type ArenaUpdateInput = {
@@ -26514,6 +29466,7 @@ export namespace Prisma {
     proposals?: StandardProposalUpdateManyWithoutArenaNestedInput
     collaborators?: ArenaCollaboratorUpdateManyWithoutArenaNestedInput
     entries?: EntryUpdateManyWithoutArenaNestedInput
+    duelMatches?: DuelMatchUpdateManyWithoutArenaNestedInput
   }
 
   export type ArenaUncheckedUpdateInput = {
@@ -26533,6 +29486,7 @@ export namespace Prisma {
     proposals?: StandardProposalUncheckedUpdateManyWithoutArenaNestedInput
     collaborators?: ArenaCollaboratorUncheckedUpdateManyWithoutArenaNestedInput
     entries?: EntryUncheckedUpdateManyWithoutArenaNestedInput
+    duelMatches?: DuelMatchUncheckedUpdateManyWithoutArenaNestedInput
   }
 
   export type ArenaCreateManyInput = {
@@ -27409,6 +30363,232 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type DuelMatchCreateInput = {
+    id?: string
+    agentAId: string
+    agentBId: string
+    entryAId?: string | null
+    entryBId?: string | null
+    status?: string
+    bestOf?: number
+    roundWinsA?: number
+    roundWinsB?: number
+    currentRound?: number
+    seed: number
+    stateJson?: string
+    pendingJson?: string
+    lastTickAt?: Date | string
+    lockVersion?: number
+    winnerAgentId?: string | null
+    createdAt?: Date | string
+    finishedAt?: Date | string | null
+    arena?: ArenaCreateNestedOneWithoutDuelMatchesInput
+    ticks?: DuelTickCreateNestedManyWithoutMatchInput
+  }
+
+  export type DuelMatchUncheckedCreateInput = {
+    id?: string
+    arenaId?: string | null
+    agentAId: string
+    agentBId: string
+    entryAId?: string | null
+    entryBId?: string | null
+    status?: string
+    bestOf?: number
+    roundWinsA?: number
+    roundWinsB?: number
+    currentRound?: number
+    seed: number
+    stateJson?: string
+    pendingJson?: string
+    lastTickAt?: Date | string
+    lockVersion?: number
+    winnerAgentId?: string | null
+    createdAt?: Date | string
+    finishedAt?: Date | string | null
+    ticks?: DuelTickUncheckedCreateNestedManyWithoutMatchInput
+  }
+
+  export type DuelMatchUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    agentAId?: StringFieldUpdateOperationsInput | string
+    agentBId?: StringFieldUpdateOperationsInput | string
+    entryAId?: NullableStringFieldUpdateOperationsInput | string | null
+    entryBId?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    bestOf?: IntFieldUpdateOperationsInput | number
+    roundWinsA?: IntFieldUpdateOperationsInput | number
+    roundWinsB?: IntFieldUpdateOperationsInput | number
+    currentRound?: IntFieldUpdateOperationsInput | number
+    seed?: IntFieldUpdateOperationsInput | number
+    stateJson?: StringFieldUpdateOperationsInput | string
+    pendingJson?: StringFieldUpdateOperationsInput | string
+    lastTickAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lockVersion?: IntFieldUpdateOperationsInput | number
+    winnerAgentId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    finishedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    arena?: ArenaUpdateOneWithoutDuelMatchesNestedInput
+    ticks?: DuelTickUpdateManyWithoutMatchNestedInput
+  }
+
+  export type DuelMatchUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    arenaId?: NullableStringFieldUpdateOperationsInput | string | null
+    agentAId?: StringFieldUpdateOperationsInput | string
+    agentBId?: StringFieldUpdateOperationsInput | string
+    entryAId?: NullableStringFieldUpdateOperationsInput | string | null
+    entryBId?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    bestOf?: IntFieldUpdateOperationsInput | number
+    roundWinsA?: IntFieldUpdateOperationsInput | number
+    roundWinsB?: IntFieldUpdateOperationsInput | number
+    currentRound?: IntFieldUpdateOperationsInput | number
+    seed?: IntFieldUpdateOperationsInput | number
+    stateJson?: StringFieldUpdateOperationsInput | string
+    pendingJson?: StringFieldUpdateOperationsInput | string
+    lastTickAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lockVersion?: IntFieldUpdateOperationsInput | number
+    winnerAgentId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    finishedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    ticks?: DuelTickUncheckedUpdateManyWithoutMatchNestedInput
+  }
+
+  export type DuelMatchCreateManyInput = {
+    id?: string
+    arenaId?: string | null
+    agentAId: string
+    agentBId: string
+    entryAId?: string | null
+    entryBId?: string | null
+    status?: string
+    bestOf?: number
+    roundWinsA?: number
+    roundWinsB?: number
+    currentRound?: number
+    seed: number
+    stateJson?: string
+    pendingJson?: string
+    lastTickAt?: Date | string
+    lockVersion?: number
+    winnerAgentId?: string | null
+    createdAt?: Date | string
+    finishedAt?: Date | string | null
+  }
+
+  export type DuelMatchUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    agentAId?: StringFieldUpdateOperationsInput | string
+    agentBId?: StringFieldUpdateOperationsInput | string
+    entryAId?: NullableStringFieldUpdateOperationsInput | string | null
+    entryBId?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    bestOf?: IntFieldUpdateOperationsInput | number
+    roundWinsA?: IntFieldUpdateOperationsInput | number
+    roundWinsB?: IntFieldUpdateOperationsInput | number
+    currentRound?: IntFieldUpdateOperationsInput | number
+    seed?: IntFieldUpdateOperationsInput | number
+    stateJson?: StringFieldUpdateOperationsInput | string
+    pendingJson?: StringFieldUpdateOperationsInput | string
+    lastTickAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lockVersion?: IntFieldUpdateOperationsInput | number
+    winnerAgentId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    finishedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type DuelMatchUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    arenaId?: NullableStringFieldUpdateOperationsInput | string | null
+    agentAId?: StringFieldUpdateOperationsInput | string
+    agentBId?: StringFieldUpdateOperationsInput | string
+    entryAId?: NullableStringFieldUpdateOperationsInput | string | null
+    entryBId?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    bestOf?: IntFieldUpdateOperationsInput | number
+    roundWinsA?: IntFieldUpdateOperationsInput | number
+    roundWinsB?: IntFieldUpdateOperationsInput | number
+    currentRound?: IntFieldUpdateOperationsInput | number
+    seed?: IntFieldUpdateOperationsInput | number
+    stateJson?: StringFieldUpdateOperationsInput | string
+    pendingJson?: StringFieldUpdateOperationsInput | string
+    lastTickAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lockVersion?: IntFieldUpdateOperationsInput | number
+    winnerAgentId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    finishedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type DuelTickCreateInput = {
+    id?: string
+    round: number
+    tick: number
+    actionA: string
+    actionB: string
+    createdAt?: Date | string
+    match: DuelMatchCreateNestedOneWithoutTicksInput
+  }
+
+  export type DuelTickUncheckedCreateInput = {
+    id?: string
+    matchId: string
+    round: number
+    tick: number
+    actionA: string
+    actionB: string
+    createdAt?: Date | string
+  }
+
+  export type DuelTickUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    round?: IntFieldUpdateOperationsInput | number
+    tick?: IntFieldUpdateOperationsInput | number
+    actionA?: StringFieldUpdateOperationsInput | string
+    actionB?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    match?: DuelMatchUpdateOneRequiredWithoutTicksNestedInput
+  }
+
+  export type DuelTickUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    matchId?: StringFieldUpdateOperationsInput | string
+    round?: IntFieldUpdateOperationsInput | number
+    tick?: IntFieldUpdateOperationsInput | number
+    actionA?: StringFieldUpdateOperationsInput | string
+    actionB?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type DuelTickCreateManyInput = {
+    id?: string
+    matchId: string
+    round: number
+    tick: number
+    actionA: string
+    actionB: string
+    createdAt?: Date | string
+  }
+
+  export type DuelTickUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    round?: IntFieldUpdateOperationsInput | number
+    tick?: IntFieldUpdateOperationsInput | number
+    actionA?: StringFieldUpdateOperationsInput | string
+    actionB?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type DuelTickUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    matchId?: StringFieldUpdateOperationsInput | string
+    round?: IntFieldUpdateOperationsInput | number
+    tick?: IntFieldUpdateOperationsInput | number
+    actionA?: StringFieldUpdateOperationsInput | string
+    actionB?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type PasswordResetCodeCreateInput = {
     id?: string
     codeHash: string
@@ -28019,6 +31199,12 @@ export namespace Prisma {
     none?: ArenaCollaboratorWhereInput
   }
 
+  export type DuelMatchListRelationFilter = {
+    every?: DuelMatchWhereInput
+    some?: DuelMatchWhereInput
+    none?: DuelMatchWhereInput
+  }
+
   export type ArenaStandardOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
@@ -28028,6 +31214,10 @@ export namespace Prisma {
   }
 
   export type ArenaCollaboratorOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type DuelMatchOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -28574,6 +31764,156 @@ export namespace Prisma {
     attempts?: SortOrder
   }
 
+  export type ArenaNullableScalarRelationFilter = {
+    is?: ArenaWhereInput | null
+    isNot?: ArenaWhereInput | null
+  }
+
+  export type DuelTickListRelationFilter = {
+    every?: DuelTickWhereInput
+    some?: DuelTickWhereInput
+    none?: DuelTickWhereInput
+  }
+
+  export type DuelTickOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type DuelMatchCountOrderByAggregateInput = {
+    id?: SortOrder
+    arenaId?: SortOrder
+    agentAId?: SortOrder
+    agentBId?: SortOrder
+    entryAId?: SortOrder
+    entryBId?: SortOrder
+    status?: SortOrder
+    bestOf?: SortOrder
+    roundWinsA?: SortOrder
+    roundWinsB?: SortOrder
+    currentRound?: SortOrder
+    seed?: SortOrder
+    stateJson?: SortOrder
+    pendingJson?: SortOrder
+    lastTickAt?: SortOrder
+    lockVersion?: SortOrder
+    winnerAgentId?: SortOrder
+    createdAt?: SortOrder
+    finishedAt?: SortOrder
+  }
+
+  export type DuelMatchAvgOrderByAggregateInput = {
+    bestOf?: SortOrder
+    roundWinsA?: SortOrder
+    roundWinsB?: SortOrder
+    currentRound?: SortOrder
+    seed?: SortOrder
+    lockVersion?: SortOrder
+  }
+
+  export type DuelMatchMaxOrderByAggregateInput = {
+    id?: SortOrder
+    arenaId?: SortOrder
+    agentAId?: SortOrder
+    agentBId?: SortOrder
+    entryAId?: SortOrder
+    entryBId?: SortOrder
+    status?: SortOrder
+    bestOf?: SortOrder
+    roundWinsA?: SortOrder
+    roundWinsB?: SortOrder
+    currentRound?: SortOrder
+    seed?: SortOrder
+    stateJson?: SortOrder
+    pendingJson?: SortOrder
+    lastTickAt?: SortOrder
+    lockVersion?: SortOrder
+    winnerAgentId?: SortOrder
+    createdAt?: SortOrder
+    finishedAt?: SortOrder
+  }
+
+  export type DuelMatchMinOrderByAggregateInput = {
+    id?: SortOrder
+    arenaId?: SortOrder
+    agentAId?: SortOrder
+    agentBId?: SortOrder
+    entryAId?: SortOrder
+    entryBId?: SortOrder
+    status?: SortOrder
+    bestOf?: SortOrder
+    roundWinsA?: SortOrder
+    roundWinsB?: SortOrder
+    currentRound?: SortOrder
+    seed?: SortOrder
+    stateJson?: SortOrder
+    pendingJson?: SortOrder
+    lastTickAt?: SortOrder
+    lockVersion?: SortOrder
+    winnerAgentId?: SortOrder
+    createdAt?: SortOrder
+    finishedAt?: SortOrder
+  }
+
+  export type DuelMatchSumOrderByAggregateInput = {
+    bestOf?: SortOrder
+    roundWinsA?: SortOrder
+    roundWinsB?: SortOrder
+    currentRound?: SortOrder
+    seed?: SortOrder
+    lockVersion?: SortOrder
+  }
+
+  export type DuelMatchScalarRelationFilter = {
+    is?: DuelMatchWhereInput
+    isNot?: DuelMatchWhereInput
+  }
+
+  export type DuelTickMatchIdRoundTickCompoundUniqueInput = {
+    matchId: string
+    round: number
+    tick: number
+  }
+
+  export type DuelTickCountOrderByAggregateInput = {
+    id?: SortOrder
+    matchId?: SortOrder
+    round?: SortOrder
+    tick?: SortOrder
+    actionA?: SortOrder
+    actionB?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type DuelTickAvgOrderByAggregateInput = {
+    round?: SortOrder
+    tick?: SortOrder
+  }
+
+  export type DuelTickMaxOrderByAggregateInput = {
+    id?: SortOrder
+    matchId?: SortOrder
+    round?: SortOrder
+    tick?: SortOrder
+    actionA?: SortOrder
+    actionB?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type DuelTickMinOrderByAggregateInput = {
+    id?: SortOrder
+    matchId?: SortOrder
+    round?: SortOrder
+    tick?: SortOrder
+    actionA?: SortOrder
+    actionB?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type DuelTickSumOrderByAggregateInput = {
+    round?: SortOrder
+    tick?: SortOrder
+  }
+
   export type PasswordResetCodeCountOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
@@ -29083,6 +32423,13 @@ export namespace Prisma {
     connect?: EntryWhereUniqueInput | EntryWhereUniqueInput[]
   }
 
+  export type DuelMatchCreateNestedManyWithoutArenaInput = {
+    create?: XOR<DuelMatchCreateWithoutArenaInput, DuelMatchUncheckedCreateWithoutArenaInput> | DuelMatchCreateWithoutArenaInput[] | DuelMatchUncheckedCreateWithoutArenaInput[]
+    connectOrCreate?: DuelMatchCreateOrConnectWithoutArenaInput | DuelMatchCreateOrConnectWithoutArenaInput[]
+    createMany?: DuelMatchCreateManyArenaInputEnvelope
+    connect?: DuelMatchWhereUniqueInput | DuelMatchWhereUniqueInput[]
+  }
+
   export type ArenaStandardUncheckedCreateNestedManyWithoutArenaInput = {
     create?: XOR<ArenaStandardCreateWithoutArenaInput, ArenaStandardUncheckedCreateWithoutArenaInput> | ArenaStandardCreateWithoutArenaInput[] | ArenaStandardUncheckedCreateWithoutArenaInput[]
     connectOrCreate?: ArenaStandardCreateOrConnectWithoutArenaInput | ArenaStandardCreateOrConnectWithoutArenaInput[]
@@ -29109,6 +32456,13 @@ export namespace Prisma {
     connectOrCreate?: EntryCreateOrConnectWithoutArenaInput | EntryCreateOrConnectWithoutArenaInput[]
     createMany?: EntryCreateManyArenaInputEnvelope
     connect?: EntryWhereUniqueInput | EntryWhereUniqueInput[]
+  }
+
+  export type DuelMatchUncheckedCreateNestedManyWithoutArenaInput = {
+    create?: XOR<DuelMatchCreateWithoutArenaInput, DuelMatchUncheckedCreateWithoutArenaInput> | DuelMatchCreateWithoutArenaInput[] | DuelMatchUncheckedCreateWithoutArenaInput[]
+    connectOrCreate?: DuelMatchCreateOrConnectWithoutArenaInput | DuelMatchCreateOrConnectWithoutArenaInput[]
+    createMany?: DuelMatchCreateManyArenaInputEnvelope
+    connect?: DuelMatchWhereUniqueInput | DuelMatchWhereUniqueInput[]
   }
 
   export type CampUpdateOneWithoutArenasNestedInput = {
@@ -29177,6 +32531,20 @@ export namespace Prisma {
     deleteMany?: EntryScalarWhereInput | EntryScalarWhereInput[]
   }
 
+  export type DuelMatchUpdateManyWithoutArenaNestedInput = {
+    create?: XOR<DuelMatchCreateWithoutArenaInput, DuelMatchUncheckedCreateWithoutArenaInput> | DuelMatchCreateWithoutArenaInput[] | DuelMatchUncheckedCreateWithoutArenaInput[]
+    connectOrCreate?: DuelMatchCreateOrConnectWithoutArenaInput | DuelMatchCreateOrConnectWithoutArenaInput[]
+    upsert?: DuelMatchUpsertWithWhereUniqueWithoutArenaInput | DuelMatchUpsertWithWhereUniqueWithoutArenaInput[]
+    createMany?: DuelMatchCreateManyArenaInputEnvelope
+    set?: DuelMatchWhereUniqueInput | DuelMatchWhereUniqueInput[]
+    disconnect?: DuelMatchWhereUniqueInput | DuelMatchWhereUniqueInput[]
+    delete?: DuelMatchWhereUniqueInput | DuelMatchWhereUniqueInput[]
+    connect?: DuelMatchWhereUniqueInput | DuelMatchWhereUniqueInput[]
+    update?: DuelMatchUpdateWithWhereUniqueWithoutArenaInput | DuelMatchUpdateWithWhereUniqueWithoutArenaInput[]
+    updateMany?: DuelMatchUpdateManyWithWhereWithoutArenaInput | DuelMatchUpdateManyWithWhereWithoutArenaInput[]
+    deleteMany?: DuelMatchScalarWhereInput | DuelMatchScalarWhereInput[]
+  }
+
   export type ArenaStandardUncheckedUpdateManyWithoutArenaNestedInput = {
     create?: XOR<ArenaStandardCreateWithoutArenaInput, ArenaStandardUncheckedCreateWithoutArenaInput> | ArenaStandardCreateWithoutArenaInput[] | ArenaStandardUncheckedCreateWithoutArenaInput[]
     connectOrCreate?: ArenaStandardCreateOrConnectWithoutArenaInput | ArenaStandardCreateOrConnectWithoutArenaInput[]
@@ -29231,6 +32599,20 @@ export namespace Prisma {
     update?: EntryUpdateWithWhereUniqueWithoutArenaInput | EntryUpdateWithWhereUniqueWithoutArenaInput[]
     updateMany?: EntryUpdateManyWithWhereWithoutArenaInput | EntryUpdateManyWithWhereWithoutArenaInput[]
     deleteMany?: EntryScalarWhereInput | EntryScalarWhereInput[]
+  }
+
+  export type DuelMatchUncheckedUpdateManyWithoutArenaNestedInput = {
+    create?: XOR<DuelMatchCreateWithoutArenaInput, DuelMatchUncheckedCreateWithoutArenaInput> | DuelMatchCreateWithoutArenaInput[] | DuelMatchUncheckedCreateWithoutArenaInput[]
+    connectOrCreate?: DuelMatchCreateOrConnectWithoutArenaInput | DuelMatchCreateOrConnectWithoutArenaInput[]
+    upsert?: DuelMatchUpsertWithWhereUniqueWithoutArenaInput | DuelMatchUpsertWithWhereUniqueWithoutArenaInput[]
+    createMany?: DuelMatchCreateManyArenaInputEnvelope
+    set?: DuelMatchWhereUniqueInput | DuelMatchWhereUniqueInput[]
+    disconnect?: DuelMatchWhereUniqueInput | DuelMatchWhereUniqueInput[]
+    delete?: DuelMatchWhereUniqueInput | DuelMatchWhereUniqueInput[]
+    connect?: DuelMatchWhereUniqueInput | DuelMatchWhereUniqueInput[]
+    update?: DuelMatchUpdateWithWhereUniqueWithoutArenaInput | DuelMatchUpdateWithWhereUniqueWithoutArenaInput[]
+    updateMany?: DuelMatchUpdateManyWithWhereWithoutArenaInput | DuelMatchUpdateManyWithWhereWithoutArenaInput[]
+    deleteMany?: DuelMatchScalarWhereInput | DuelMatchScalarWhereInput[]
   }
 
   export type ArenaCreateNestedOneWithoutStandardsInput = {
@@ -29477,6 +32859,78 @@ export namespace Prisma {
     upsert?: SubmissionUpsertWithoutEvalJobsInput
     connect?: SubmissionWhereUniqueInput
     update?: XOR<XOR<SubmissionUpdateToOneWithWhereWithoutEvalJobsInput, SubmissionUpdateWithoutEvalJobsInput>, SubmissionUncheckedUpdateWithoutEvalJobsInput>
+  }
+
+  export type ArenaCreateNestedOneWithoutDuelMatchesInput = {
+    create?: XOR<ArenaCreateWithoutDuelMatchesInput, ArenaUncheckedCreateWithoutDuelMatchesInput>
+    connectOrCreate?: ArenaCreateOrConnectWithoutDuelMatchesInput
+    connect?: ArenaWhereUniqueInput
+  }
+
+  export type DuelTickCreateNestedManyWithoutMatchInput = {
+    create?: XOR<DuelTickCreateWithoutMatchInput, DuelTickUncheckedCreateWithoutMatchInput> | DuelTickCreateWithoutMatchInput[] | DuelTickUncheckedCreateWithoutMatchInput[]
+    connectOrCreate?: DuelTickCreateOrConnectWithoutMatchInput | DuelTickCreateOrConnectWithoutMatchInput[]
+    createMany?: DuelTickCreateManyMatchInputEnvelope
+    connect?: DuelTickWhereUniqueInput | DuelTickWhereUniqueInput[]
+  }
+
+  export type DuelTickUncheckedCreateNestedManyWithoutMatchInput = {
+    create?: XOR<DuelTickCreateWithoutMatchInput, DuelTickUncheckedCreateWithoutMatchInput> | DuelTickCreateWithoutMatchInput[] | DuelTickUncheckedCreateWithoutMatchInput[]
+    connectOrCreate?: DuelTickCreateOrConnectWithoutMatchInput | DuelTickCreateOrConnectWithoutMatchInput[]
+    createMany?: DuelTickCreateManyMatchInputEnvelope
+    connect?: DuelTickWhereUniqueInput | DuelTickWhereUniqueInput[]
+  }
+
+  export type ArenaUpdateOneWithoutDuelMatchesNestedInput = {
+    create?: XOR<ArenaCreateWithoutDuelMatchesInput, ArenaUncheckedCreateWithoutDuelMatchesInput>
+    connectOrCreate?: ArenaCreateOrConnectWithoutDuelMatchesInput
+    upsert?: ArenaUpsertWithoutDuelMatchesInput
+    disconnect?: ArenaWhereInput | boolean
+    delete?: ArenaWhereInput | boolean
+    connect?: ArenaWhereUniqueInput
+    update?: XOR<XOR<ArenaUpdateToOneWithWhereWithoutDuelMatchesInput, ArenaUpdateWithoutDuelMatchesInput>, ArenaUncheckedUpdateWithoutDuelMatchesInput>
+  }
+
+  export type DuelTickUpdateManyWithoutMatchNestedInput = {
+    create?: XOR<DuelTickCreateWithoutMatchInput, DuelTickUncheckedCreateWithoutMatchInput> | DuelTickCreateWithoutMatchInput[] | DuelTickUncheckedCreateWithoutMatchInput[]
+    connectOrCreate?: DuelTickCreateOrConnectWithoutMatchInput | DuelTickCreateOrConnectWithoutMatchInput[]
+    upsert?: DuelTickUpsertWithWhereUniqueWithoutMatchInput | DuelTickUpsertWithWhereUniqueWithoutMatchInput[]
+    createMany?: DuelTickCreateManyMatchInputEnvelope
+    set?: DuelTickWhereUniqueInput | DuelTickWhereUniqueInput[]
+    disconnect?: DuelTickWhereUniqueInput | DuelTickWhereUniqueInput[]
+    delete?: DuelTickWhereUniqueInput | DuelTickWhereUniqueInput[]
+    connect?: DuelTickWhereUniqueInput | DuelTickWhereUniqueInput[]
+    update?: DuelTickUpdateWithWhereUniqueWithoutMatchInput | DuelTickUpdateWithWhereUniqueWithoutMatchInput[]
+    updateMany?: DuelTickUpdateManyWithWhereWithoutMatchInput | DuelTickUpdateManyWithWhereWithoutMatchInput[]
+    deleteMany?: DuelTickScalarWhereInput | DuelTickScalarWhereInput[]
+  }
+
+  export type DuelTickUncheckedUpdateManyWithoutMatchNestedInput = {
+    create?: XOR<DuelTickCreateWithoutMatchInput, DuelTickUncheckedCreateWithoutMatchInput> | DuelTickCreateWithoutMatchInput[] | DuelTickUncheckedCreateWithoutMatchInput[]
+    connectOrCreate?: DuelTickCreateOrConnectWithoutMatchInput | DuelTickCreateOrConnectWithoutMatchInput[]
+    upsert?: DuelTickUpsertWithWhereUniqueWithoutMatchInput | DuelTickUpsertWithWhereUniqueWithoutMatchInput[]
+    createMany?: DuelTickCreateManyMatchInputEnvelope
+    set?: DuelTickWhereUniqueInput | DuelTickWhereUniqueInput[]
+    disconnect?: DuelTickWhereUniqueInput | DuelTickWhereUniqueInput[]
+    delete?: DuelTickWhereUniqueInput | DuelTickWhereUniqueInput[]
+    connect?: DuelTickWhereUniqueInput | DuelTickWhereUniqueInput[]
+    update?: DuelTickUpdateWithWhereUniqueWithoutMatchInput | DuelTickUpdateWithWhereUniqueWithoutMatchInput[]
+    updateMany?: DuelTickUpdateManyWithWhereWithoutMatchInput | DuelTickUpdateManyWithWhereWithoutMatchInput[]
+    deleteMany?: DuelTickScalarWhereInput | DuelTickScalarWhereInput[]
+  }
+
+  export type DuelMatchCreateNestedOneWithoutTicksInput = {
+    create?: XOR<DuelMatchCreateWithoutTicksInput, DuelMatchUncheckedCreateWithoutTicksInput>
+    connectOrCreate?: DuelMatchCreateOrConnectWithoutTicksInput
+    connect?: DuelMatchWhereUniqueInput
+  }
+
+  export type DuelMatchUpdateOneRequiredWithoutTicksNestedInput = {
+    create?: XOR<DuelMatchCreateWithoutTicksInput, DuelMatchUncheckedCreateWithoutTicksInput>
+    connectOrCreate?: DuelMatchCreateOrConnectWithoutTicksInput
+    upsert?: DuelMatchUpsertWithoutTicksInput
+    connect?: DuelMatchWhereUniqueInput
+    update?: XOR<XOR<DuelMatchUpdateToOneWithWhereWithoutTicksInput, DuelMatchUpdateWithoutTicksInput>, DuelMatchUncheckedUpdateWithoutTicksInput>
   }
 
   export type UserCreateNestedOneWithoutPasswordResetCodesInput = {
@@ -30571,6 +34025,7 @@ export namespace Prisma {
     proposals?: StandardProposalCreateNestedManyWithoutArenaInput
     collaborators?: ArenaCollaboratorCreateNestedManyWithoutArenaInput
     entries?: EntryCreateNestedManyWithoutArenaInput
+    duelMatches?: DuelMatchCreateNestedManyWithoutArenaInput
   }
 
   export type ArenaUncheckedCreateWithoutCampInput = {
@@ -30589,6 +34044,7 @@ export namespace Prisma {
     proposals?: StandardProposalUncheckedCreateNestedManyWithoutArenaInput
     collaborators?: ArenaCollaboratorUncheckedCreateNestedManyWithoutArenaInput
     entries?: EntryUncheckedCreateNestedManyWithoutArenaInput
+    duelMatches?: DuelMatchUncheckedCreateNestedManyWithoutArenaInput
   }
 
   export type ArenaCreateOrConnectWithoutCampInput = {
@@ -30835,6 +34291,59 @@ export namespace Prisma {
     data: EntryCreateManyArenaInput | EntryCreateManyArenaInput[]
   }
 
+  export type DuelMatchCreateWithoutArenaInput = {
+    id?: string
+    agentAId: string
+    agentBId: string
+    entryAId?: string | null
+    entryBId?: string | null
+    status?: string
+    bestOf?: number
+    roundWinsA?: number
+    roundWinsB?: number
+    currentRound?: number
+    seed: number
+    stateJson?: string
+    pendingJson?: string
+    lastTickAt?: Date | string
+    lockVersion?: number
+    winnerAgentId?: string | null
+    createdAt?: Date | string
+    finishedAt?: Date | string | null
+    ticks?: DuelTickCreateNestedManyWithoutMatchInput
+  }
+
+  export type DuelMatchUncheckedCreateWithoutArenaInput = {
+    id?: string
+    agentAId: string
+    agentBId: string
+    entryAId?: string | null
+    entryBId?: string | null
+    status?: string
+    bestOf?: number
+    roundWinsA?: number
+    roundWinsB?: number
+    currentRound?: number
+    seed: number
+    stateJson?: string
+    pendingJson?: string
+    lastTickAt?: Date | string
+    lockVersion?: number
+    winnerAgentId?: string | null
+    createdAt?: Date | string
+    finishedAt?: Date | string | null
+    ticks?: DuelTickUncheckedCreateNestedManyWithoutMatchInput
+  }
+
+  export type DuelMatchCreateOrConnectWithoutArenaInput = {
+    where: DuelMatchWhereUniqueInput
+    create: XOR<DuelMatchCreateWithoutArenaInput, DuelMatchUncheckedCreateWithoutArenaInput>
+  }
+
+  export type DuelMatchCreateManyArenaInputEnvelope = {
+    data: DuelMatchCreateManyArenaInput | DuelMatchCreateManyArenaInput[]
+  }
+
   export type CampUpsertWithoutArenasInput = {
     update: XOR<CampUpdateWithoutArenasInput, CampUncheckedUpdateWithoutArenasInput>
     create: XOR<CampCreateWithoutArenasInput, CampUncheckedCreateWithoutArenasInput>
@@ -30984,6 +34493,47 @@ export namespace Prisma {
     data: XOR<EntryUpdateManyMutationInput, EntryUncheckedUpdateManyWithoutArenaInput>
   }
 
+  export type DuelMatchUpsertWithWhereUniqueWithoutArenaInput = {
+    where: DuelMatchWhereUniqueInput
+    update: XOR<DuelMatchUpdateWithoutArenaInput, DuelMatchUncheckedUpdateWithoutArenaInput>
+    create: XOR<DuelMatchCreateWithoutArenaInput, DuelMatchUncheckedCreateWithoutArenaInput>
+  }
+
+  export type DuelMatchUpdateWithWhereUniqueWithoutArenaInput = {
+    where: DuelMatchWhereUniqueInput
+    data: XOR<DuelMatchUpdateWithoutArenaInput, DuelMatchUncheckedUpdateWithoutArenaInput>
+  }
+
+  export type DuelMatchUpdateManyWithWhereWithoutArenaInput = {
+    where: DuelMatchScalarWhereInput
+    data: XOR<DuelMatchUpdateManyMutationInput, DuelMatchUncheckedUpdateManyWithoutArenaInput>
+  }
+
+  export type DuelMatchScalarWhereInput = {
+    AND?: DuelMatchScalarWhereInput | DuelMatchScalarWhereInput[]
+    OR?: DuelMatchScalarWhereInput[]
+    NOT?: DuelMatchScalarWhereInput | DuelMatchScalarWhereInput[]
+    id?: StringFilter<"DuelMatch"> | string
+    arenaId?: StringNullableFilter<"DuelMatch"> | string | null
+    agentAId?: StringFilter<"DuelMatch"> | string
+    agentBId?: StringFilter<"DuelMatch"> | string
+    entryAId?: StringNullableFilter<"DuelMatch"> | string | null
+    entryBId?: StringNullableFilter<"DuelMatch"> | string | null
+    status?: StringFilter<"DuelMatch"> | string
+    bestOf?: IntFilter<"DuelMatch"> | number
+    roundWinsA?: IntFilter<"DuelMatch"> | number
+    roundWinsB?: IntFilter<"DuelMatch"> | number
+    currentRound?: IntFilter<"DuelMatch"> | number
+    seed?: IntFilter<"DuelMatch"> | number
+    stateJson?: StringFilter<"DuelMatch"> | string
+    pendingJson?: StringFilter<"DuelMatch"> | string
+    lastTickAt?: DateTimeFilter<"DuelMatch"> | Date | string
+    lockVersion?: IntFilter<"DuelMatch"> | number
+    winnerAgentId?: StringNullableFilter<"DuelMatch"> | string | null
+    createdAt?: DateTimeFilter<"DuelMatch"> | Date | string
+    finishedAt?: DateTimeNullableFilter<"DuelMatch"> | Date | string | null
+  }
+
   export type ArenaCreateWithoutStandardsInput = {
     id?: string
     creatorType: string
@@ -31000,6 +34550,7 @@ export namespace Prisma {
     proposals?: StandardProposalCreateNestedManyWithoutArenaInput
     collaborators?: ArenaCollaboratorCreateNestedManyWithoutArenaInput
     entries?: EntryCreateNestedManyWithoutArenaInput
+    duelMatches?: DuelMatchCreateNestedManyWithoutArenaInput
   }
 
   export type ArenaUncheckedCreateWithoutStandardsInput = {
@@ -31018,6 +34569,7 @@ export namespace Prisma {
     proposals?: StandardProposalUncheckedCreateNestedManyWithoutArenaInput
     collaborators?: ArenaCollaboratorUncheckedCreateNestedManyWithoutArenaInput
     entries?: EntryUncheckedCreateNestedManyWithoutArenaInput
+    duelMatches?: DuelMatchUncheckedCreateNestedManyWithoutArenaInput
   }
 
   export type ArenaCreateOrConnectWithoutStandardsInput = {
@@ -31052,6 +34604,7 @@ export namespace Prisma {
     proposals?: StandardProposalUpdateManyWithoutArenaNestedInput
     collaborators?: ArenaCollaboratorUpdateManyWithoutArenaNestedInput
     entries?: EntryUpdateManyWithoutArenaNestedInput
+    duelMatches?: DuelMatchUpdateManyWithoutArenaNestedInput
   }
 
   export type ArenaUncheckedUpdateWithoutStandardsInput = {
@@ -31070,6 +34623,7 @@ export namespace Prisma {
     proposals?: StandardProposalUncheckedUpdateManyWithoutArenaNestedInput
     collaborators?: ArenaCollaboratorUncheckedUpdateManyWithoutArenaNestedInput
     entries?: EntryUncheckedUpdateManyWithoutArenaNestedInput
+    duelMatches?: DuelMatchUncheckedUpdateManyWithoutArenaNestedInput
   }
 
   export type ArenaCreateWithoutProposalsInput = {
@@ -31088,6 +34642,7 @@ export namespace Prisma {
     standards?: ArenaStandardCreateNestedManyWithoutArenaInput
     collaborators?: ArenaCollaboratorCreateNestedManyWithoutArenaInput
     entries?: EntryCreateNestedManyWithoutArenaInput
+    duelMatches?: DuelMatchCreateNestedManyWithoutArenaInput
   }
 
   export type ArenaUncheckedCreateWithoutProposalsInput = {
@@ -31106,6 +34661,7 @@ export namespace Prisma {
     standards?: ArenaStandardUncheckedCreateNestedManyWithoutArenaInput
     collaborators?: ArenaCollaboratorUncheckedCreateNestedManyWithoutArenaInput
     entries?: EntryUncheckedCreateNestedManyWithoutArenaInput
+    duelMatches?: DuelMatchUncheckedCreateNestedManyWithoutArenaInput
   }
 
   export type ArenaCreateOrConnectWithoutProposalsInput = {
@@ -31140,6 +34696,7 @@ export namespace Prisma {
     standards?: ArenaStandardUpdateManyWithoutArenaNestedInput
     collaborators?: ArenaCollaboratorUpdateManyWithoutArenaNestedInput
     entries?: EntryUpdateManyWithoutArenaNestedInput
+    duelMatches?: DuelMatchUpdateManyWithoutArenaNestedInput
   }
 
   export type ArenaUncheckedUpdateWithoutProposalsInput = {
@@ -31158,6 +34715,7 @@ export namespace Prisma {
     standards?: ArenaStandardUncheckedUpdateManyWithoutArenaNestedInput
     collaborators?: ArenaCollaboratorUncheckedUpdateManyWithoutArenaNestedInput
     entries?: EntryUncheckedUpdateManyWithoutArenaNestedInput
+    duelMatches?: DuelMatchUncheckedUpdateManyWithoutArenaNestedInput
   }
 
   export type ArenaCreateWithoutCollaboratorsInput = {
@@ -31176,6 +34734,7 @@ export namespace Prisma {
     standards?: ArenaStandardCreateNestedManyWithoutArenaInput
     proposals?: StandardProposalCreateNestedManyWithoutArenaInput
     entries?: EntryCreateNestedManyWithoutArenaInput
+    duelMatches?: DuelMatchCreateNestedManyWithoutArenaInput
   }
 
   export type ArenaUncheckedCreateWithoutCollaboratorsInput = {
@@ -31194,6 +34753,7 @@ export namespace Prisma {
     standards?: ArenaStandardUncheckedCreateNestedManyWithoutArenaInput
     proposals?: StandardProposalUncheckedCreateNestedManyWithoutArenaInput
     entries?: EntryUncheckedCreateNestedManyWithoutArenaInput
+    duelMatches?: DuelMatchUncheckedCreateNestedManyWithoutArenaInput
   }
 
   export type ArenaCreateOrConnectWithoutCollaboratorsInput = {
@@ -31228,6 +34788,7 @@ export namespace Prisma {
     standards?: ArenaStandardUpdateManyWithoutArenaNestedInput
     proposals?: StandardProposalUpdateManyWithoutArenaNestedInput
     entries?: EntryUpdateManyWithoutArenaNestedInput
+    duelMatches?: DuelMatchUpdateManyWithoutArenaNestedInput
   }
 
   export type ArenaUncheckedUpdateWithoutCollaboratorsInput = {
@@ -31246,6 +34807,7 @@ export namespace Prisma {
     standards?: ArenaStandardUncheckedUpdateManyWithoutArenaNestedInput
     proposals?: StandardProposalUncheckedUpdateManyWithoutArenaNestedInput
     entries?: EntryUncheckedUpdateManyWithoutArenaNestedInput
+    duelMatches?: DuelMatchUncheckedUpdateManyWithoutArenaNestedInput
   }
 
   export type ArenaCreateWithoutEntriesInput = {
@@ -31264,6 +34826,7 @@ export namespace Prisma {
     standards?: ArenaStandardCreateNestedManyWithoutArenaInput
     proposals?: StandardProposalCreateNestedManyWithoutArenaInput
     collaborators?: ArenaCollaboratorCreateNestedManyWithoutArenaInput
+    duelMatches?: DuelMatchCreateNestedManyWithoutArenaInput
   }
 
   export type ArenaUncheckedCreateWithoutEntriesInput = {
@@ -31282,6 +34845,7 @@ export namespace Prisma {
     standards?: ArenaStandardUncheckedCreateNestedManyWithoutArenaInput
     proposals?: StandardProposalUncheckedCreateNestedManyWithoutArenaInput
     collaborators?: ArenaCollaboratorUncheckedCreateNestedManyWithoutArenaInput
+    duelMatches?: DuelMatchUncheckedCreateNestedManyWithoutArenaInput
   }
 
   export type ArenaCreateOrConnectWithoutEntriesInput = {
@@ -31394,6 +34958,7 @@ export namespace Prisma {
     standards?: ArenaStandardUpdateManyWithoutArenaNestedInput
     proposals?: StandardProposalUpdateManyWithoutArenaNestedInput
     collaborators?: ArenaCollaboratorUpdateManyWithoutArenaNestedInput
+    duelMatches?: DuelMatchUpdateManyWithoutArenaNestedInput
   }
 
   export type ArenaUncheckedUpdateWithoutEntriesInput = {
@@ -31412,6 +34977,7 @@ export namespace Prisma {
     standards?: ArenaStandardUncheckedUpdateManyWithoutArenaNestedInput
     proposals?: StandardProposalUncheckedUpdateManyWithoutArenaNestedInput
     collaborators?: ArenaCollaboratorUncheckedUpdateManyWithoutArenaNestedInput
+    duelMatches?: DuelMatchUncheckedUpdateManyWithoutArenaNestedInput
   }
 
   export type AgentUpsertWithoutEntriesInput = {
@@ -31799,6 +35365,258 @@ export namespace Prisma {
     finalScore?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     votes?: VoteUncheckedUpdateManyWithoutSubmissionNestedInput
+  }
+
+  export type ArenaCreateWithoutDuelMatchesInput = {
+    id?: string
+    creatorType: string
+    creatorId: string
+    title: string
+    description: string
+    status?: string
+    deadline?: Date | string | null
+    evalMode: string
+    evalConfig?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    camp?: CampCreateNestedOneWithoutArenasInput
+    standards?: ArenaStandardCreateNestedManyWithoutArenaInput
+    proposals?: StandardProposalCreateNestedManyWithoutArenaInput
+    collaborators?: ArenaCollaboratorCreateNestedManyWithoutArenaInput
+    entries?: EntryCreateNestedManyWithoutArenaInput
+  }
+
+  export type ArenaUncheckedCreateWithoutDuelMatchesInput = {
+    id?: string
+    creatorType: string
+    creatorId: string
+    campId?: string | null
+    title: string
+    description: string
+    status?: string
+    deadline?: Date | string | null
+    evalMode: string
+    evalConfig?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    standards?: ArenaStandardUncheckedCreateNestedManyWithoutArenaInput
+    proposals?: StandardProposalUncheckedCreateNestedManyWithoutArenaInput
+    collaborators?: ArenaCollaboratorUncheckedCreateNestedManyWithoutArenaInput
+    entries?: EntryUncheckedCreateNestedManyWithoutArenaInput
+  }
+
+  export type ArenaCreateOrConnectWithoutDuelMatchesInput = {
+    where: ArenaWhereUniqueInput
+    create: XOR<ArenaCreateWithoutDuelMatchesInput, ArenaUncheckedCreateWithoutDuelMatchesInput>
+  }
+
+  export type DuelTickCreateWithoutMatchInput = {
+    id?: string
+    round: number
+    tick: number
+    actionA: string
+    actionB: string
+    createdAt?: Date | string
+  }
+
+  export type DuelTickUncheckedCreateWithoutMatchInput = {
+    id?: string
+    round: number
+    tick: number
+    actionA: string
+    actionB: string
+    createdAt?: Date | string
+  }
+
+  export type DuelTickCreateOrConnectWithoutMatchInput = {
+    where: DuelTickWhereUniqueInput
+    create: XOR<DuelTickCreateWithoutMatchInput, DuelTickUncheckedCreateWithoutMatchInput>
+  }
+
+  export type DuelTickCreateManyMatchInputEnvelope = {
+    data: DuelTickCreateManyMatchInput | DuelTickCreateManyMatchInput[]
+  }
+
+  export type ArenaUpsertWithoutDuelMatchesInput = {
+    update: XOR<ArenaUpdateWithoutDuelMatchesInput, ArenaUncheckedUpdateWithoutDuelMatchesInput>
+    create: XOR<ArenaCreateWithoutDuelMatchesInput, ArenaUncheckedCreateWithoutDuelMatchesInput>
+    where?: ArenaWhereInput
+  }
+
+  export type ArenaUpdateToOneWithWhereWithoutDuelMatchesInput = {
+    where?: ArenaWhereInput
+    data: XOR<ArenaUpdateWithoutDuelMatchesInput, ArenaUncheckedUpdateWithoutDuelMatchesInput>
+  }
+
+  export type ArenaUpdateWithoutDuelMatchesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    creatorType?: StringFieldUpdateOperationsInput | string
+    creatorId?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    deadline?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    evalMode?: StringFieldUpdateOperationsInput | string
+    evalConfig?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    camp?: CampUpdateOneWithoutArenasNestedInput
+    standards?: ArenaStandardUpdateManyWithoutArenaNestedInput
+    proposals?: StandardProposalUpdateManyWithoutArenaNestedInput
+    collaborators?: ArenaCollaboratorUpdateManyWithoutArenaNestedInput
+    entries?: EntryUpdateManyWithoutArenaNestedInput
+  }
+
+  export type ArenaUncheckedUpdateWithoutDuelMatchesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    creatorType?: StringFieldUpdateOperationsInput | string
+    creatorId?: StringFieldUpdateOperationsInput | string
+    campId?: NullableStringFieldUpdateOperationsInput | string | null
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
+    deadline?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    evalMode?: StringFieldUpdateOperationsInput | string
+    evalConfig?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    standards?: ArenaStandardUncheckedUpdateManyWithoutArenaNestedInput
+    proposals?: StandardProposalUncheckedUpdateManyWithoutArenaNestedInput
+    collaborators?: ArenaCollaboratorUncheckedUpdateManyWithoutArenaNestedInput
+    entries?: EntryUncheckedUpdateManyWithoutArenaNestedInput
+  }
+
+  export type DuelTickUpsertWithWhereUniqueWithoutMatchInput = {
+    where: DuelTickWhereUniqueInput
+    update: XOR<DuelTickUpdateWithoutMatchInput, DuelTickUncheckedUpdateWithoutMatchInput>
+    create: XOR<DuelTickCreateWithoutMatchInput, DuelTickUncheckedCreateWithoutMatchInput>
+  }
+
+  export type DuelTickUpdateWithWhereUniqueWithoutMatchInput = {
+    where: DuelTickWhereUniqueInput
+    data: XOR<DuelTickUpdateWithoutMatchInput, DuelTickUncheckedUpdateWithoutMatchInput>
+  }
+
+  export type DuelTickUpdateManyWithWhereWithoutMatchInput = {
+    where: DuelTickScalarWhereInput
+    data: XOR<DuelTickUpdateManyMutationInput, DuelTickUncheckedUpdateManyWithoutMatchInput>
+  }
+
+  export type DuelTickScalarWhereInput = {
+    AND?: DuelTickScalarWhereInput | DuelTickScalarWhereInput[]
+    OR?: DuelTickScalarWhereInput[]
+    NOT?: DuelTickScalarWhereInput | DuelTickScalarWhereInput[]
+    id?: StringFilter<"DuelTick"> | string
+    matchId?: StringFilter<"DuelTick"> | string
+    round?: IntFilter<"DuelTick"> | number
+    tick?: IntFilter<"DuelTick"> | number
+    actionA?: StringFilter<"DuelTick"> | string
+    actionB?: StringFilter<"DuelTick"> | string
+    createdAt?: DateTimeFilter<"DuelTick"> | Date | string
+  }
+
+  export type DuelMatchCreateWithoutTicksInput = {
+    id?: string
+    agentAId: string
+    agentBId: string
+    entryAId?: string | null
+    entryBId?: string | null
+    status?: string
+    bestOf?: number
+    roundWinsA?: number
+    roundWinsB?: number
+    currentRound?: number
+    seed: number
+    stateJson?: string
+    pendingJson?: string
+    lastTickAt?: Date | string
+    lockVersion?: number
+    winnerAgentId?: string | null
+    createdAt?: Date | string
+    finishedAt?: Date | string | null
+    arena?: ArenaCreateNestedOneWithoutDuelMatchesInput
+  }
+
+  export type DuelMatchUncheckedCreateWithoutTicksInput = {
+    id?: string
+    arenaId?: string | null
+    agentAId: string
+    agentBId: string
+    entryAId?: string | null
+    entryBId?: string | null
+    status?: string
+    bestOf?: number
+    roundWinsA?: number
+    roundWinsB?: number
+    currentRound?: number
+    seed: number
+    stateJson?: string
+    pendingJson?: string
+    lastTickAt?: Date | string
+    lockVersion?: number
+    winnerAgentId?: string | null
+    createdAt?: Date | string
+    finishedAt?: Date | string | null
+  }
+
+  export type DuelMatchCreateOrConnectWithoutTicksInput = {
+    where: DuelMatchWhereUniqueInput
+    create: XOR<DuelMatchCreateWithoutTicksInput, DuelMatchUncheckedCreateWithoutTicksInput>
+  }
+
+  export type DuelMatchUpsertWithoutTicksInput = {
+    update: XOR<DuelMatchUpdateWithoutTicksInput, DuelMatchUncheckedUpdateWithoutTicksInput>
+    create: XOR<DuelMatchCreateWithoutTicksInput, DuelMatchUncheckedCreateWithoutTicksInput>
+    where?: DuelMatchWhereInput
+  }
+
+  export type DuelMatchUpdateToOneWithWhereWithoutTicksInput = {
+    where?: DuelMatchWhereInput
+    data: XOR<DuelMatchUpdateWithoutTicksInput, DuelMatchUncheckedUpdateWithoutTicksInput>
+  }
+
+  export type DuelMatchUpdateWithoutTicksInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    agentAId?: StringFieldUpdateOperationsInput | string
+    agentBId?: StringFieldUpdateOperationsInput | string
+    entryAId?: NullableStringFieldUpdateOperationsInput | string | null
+    entryBId?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    bestOf?: IntFieldUpdateOperationsInput | number
+    roundWinsA?: IntFieldUpdateOperationsInput | number
+    roundWinsB?: IntFieldUpdateOperationsInput | number
+    currentRound?: IntFieldUpdateOperationsInput | number
+    seed?: IntFieldUpdateOperationsInput | number
+    stateJson?: StringFieldUpdateOperationsInput | string
+    pendingJson?: StringFieldUpdateOperationsInput | string
+    lastTickAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lockVersion?: IntFieldUpdateOperationsInput | number
+    winnerAgentId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    finishedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    arena?: ArenaUpdateOneWithoutDuelMatchesNestedInput
+  }
+
+  export type DuelMatchUncheckedUpdateWithoutTicksInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    arenaId?: NullableStringFieldUpdateOperationsInput | string | null
+    agentAId?: StringFieldUpdateOperationsInput | string
+    agentBId?: StringFieldUpdateOperationsInput | string
+    entryAId?: NullableStringFieldUpdateOperationsInput | string | null
+    entryBId?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    bestOf?: IntFieldUpdateOperationsInput | number
+    roundWinsA?: IntFieldUpdateOperationsInput | number
+    roundWinsB?: IntFieldUpdateOperationsInput | number
+    currentRound?: IntFieldUpdateOperationsInput | number
+    seed?: IntFieldUpdateOperationsInput | number
+    stateJson?: StringFieldUpdateOperationsInput | string
+    pendingJson?: StringFieldUpdateOperationsInput | string
+    lastTickAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lockVersion?: IntFieldUpdateOperationsInput | number
+    winnerAgentId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    finishedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type UserCreateWithoutPasswordResetCodesInput = {
@@ -32277,6 +36095,7 @@ export namespace Prisma {
     proposals?: StandardProposalUpdateManyWithoutArenaNestedInput
     collaborators?: ArenaCollaboratorUpdateManyWithoutArenaNestedInput
     entries?: EntryUpdateManyWithoutArenaNestedInput
+    duelMatches?: DuelMatchUpdateManyWithoutArenaNestedInput
   }
 
   export type ArenaUncheckedUpdateWithoutCampInput = {
@@ -32295,6 +36114,7 @@ export namespace Prisma {
     proposals?: StandardProposalUncheckedUpdateManyWithoutArenaNestedInput
     collaborators?: ArenaCollaboratorUncheckedUpdateManyWithoutArenaNestedInput
     entries?: EntryUncheckedUpdateManyWithoutArenaNestedInput
+    duelMatches?: DuelMatchUncheckedUpdateManyWithoutArenaNestedInput
   }
 
   export type ArenaUncheckedUpdateManyWithoutCampInput = {
@@ -32346,6 +36166,27 @@ export namespace Prisma {
     agentId: string
     a2aEndpoint?: string | null
     joinedAt?: Date | string
+  }
+
+  export type DuelMatchCreateManyArenaInput = {
+    id?: string
+    agentAId: string
+    agentBId: string
+    entryAId?: string | null
+    entryBId?: string | null
+    status?: string
+    bestOf?: number
+    roundWinsA?: number
+    roundWinsB?: number
+    currentRound?: number
+    seed: number
+    stateJson?: string
+    pendingJson?: string
+    lastTickAt?: Date | string
+    lockVersion?: number
+    winnerAgentId?: string | null
+    createdAt?: Date | string
+    finishedAt?: Date | string | null
   }
 
   export type ArenaStandardUpdateWithoutArenaInput = {
@@ -32459,6 +36300,71 @@ export namespace Prisma {
     agentId?: StringFieldUpdateOperationsInput | string
     a2aEndpoint?: NullableStringFieldUpdateOperationsInput | string | null
     joinedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type DuelMatchUpdateWithoutArenaInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    agentAId?: StringFieldUpdateOperationsInput | string
+    agentBId?: StringFieldUpdateOperationsInput | string
+    entryAId?: NullableStringFieldUpdateOperationsInput | string | null
+    entryBId?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    bestOf?: IntFieldUpdateOperationsInput | number
+    roundWinsA?: IntFieldUpdateOperationsInput | number
+    roundWinsB?: IntFieldUpdateOperationsInput | number
+    currentRound?: IntFieldUpdateOperationsInput | number
+    seed?: IntFieldUpdateOperationsInput | number
+    stateJson?: StringFieldUpdateOperationsInput | string
+    pendingJson?: StringFieldUpdateOperationsInput | string
+    lastTickAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lockVersion?: IntFieldUpdateOperationsInput | number
+    winnerAgentId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    finishedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    ticks?: DuelTickUpdateManyWithoutMatchNestedInput
+  }
+
+  export type DuelMatchUncheckedUpdateWithoutArenaInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    agentAId?: StringFieldUpdateOperationsInput | string
+    agentBId?: StringFieldUpdateOperationsInput | string
+    entryAId?: NullableStringFieldUpdateOperationsInput | string | null
+    entryBId?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    bestOf?: IntFieldUpdateOperationsInput | number
+    roundWinsA?: IntFieldUpdateOperationsInput | number
+    roundWinsB?: IntFieldUpdateOperationsInput | number
+    currentRound?: IntFieldUpdateOperationsInput | number
+    seed?: IntFieldUpdateOperationsInput | number
+    stateJson?: StringFieldUpdateOperationsInput | string
+    pendingJson?: StringFieldUpdateOperationsInput | string
+    lastTickAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lockVersion?: IntFieldUpdateOperationsInput | number
+    winnerAgentId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    finishedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    ticks?: DuelTickUncheckedUpdateManyWithoutMatchNestedInput
+  }
+
+  export type DuelMatchUncheckedUpdateManyWithoutArenaInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    agentAId?: StringFieldUpdateOperationsInput | string
+    agentBId?: StringFieldUpdateOperationsInput | string
+    entryAId?: NullableStringFieldUpdateOperationsInput | string | null
+    entryBId?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    bestOf?: IntFieldUpdateOperationsInput | number
+    roundWinsA?: IntFieldUpdateOperationsInput | number
+    roundWinsB?: IntFieldUpdateOperationsInput | number
+    currentRound?: IntFieldUpdateOperationsInput | number
+    seed?: IntFieldUpdateOperationsInput | number
+    stateJson?: StringFieldUpdateOperationsInput | string
+    pendingJson?: StringFieldUpdateOperationsInput | string
+    lastTickAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lockVersion?: IntFieldUpdateOperationsInput | number
+    winnerAgentId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    finishedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type SubmissionCreateManyEntryInput = {
@@ -32583,6 +36489,42 @@ export namespace Prisma {
     lastError?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type DuelTickCreateManyMatchInput = {
+    id?: string
+    round: number
+    tick: number
+    actionA: string
+    actionB: string
+    createdAt?: Date | string
+  }
+
+  export type DuelTickUpdateWithoutMatchInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    round?: IntFieldUpdateOperationsInput | number
+    tick?: IntFieldUpdateOperationsInput | number
+    actionA?: StringFieldUpdateOperationsInput | string
+    actionB?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type DuelTickUncheckedUpdateWithoutMatchInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    round?: IntFieldUpdateOperationsInput | number
+    tick?: IntFieldUpdateOperationsInput | number
+    actionA?: StringFieldUpdateOperationsInput | string
+    actionB?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type DuelTickUncheckedUpdateManyWithoutMatchInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    round?: IntFieldUpdateOperationsInput | number
+    tick?: IntFieldUpdateOperationsInput | number
+    actionA?: StringFieldUpdateOperationsInput | string
+    actionB?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
 
